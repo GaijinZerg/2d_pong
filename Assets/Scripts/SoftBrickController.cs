@@ -1,0 +1,37 @@
+using UnityEngine;
+
+public class SoftBrickController : Brick, IBrickInterface
+{
+    private GameObject player;
+    private PlayerController playerController;
+
+    public void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
+    }
+
+    BrickProperties properties = new BrickProperties(1, 100, 0.1f);
+    public void Action()
+    {
+        properties.Durability--;
+        if (properties.BonusChance > Random.Range(0f, 1f))
+        {
+            BonusAction();
+        }
+        if (properties.Durability == 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    protected override void BonusAction()
+    {
+        // Bonus action.
+    }
+
+    private void OnDestroy()
+    {
+        playerController.AddScore(properties.Score);
+    }
+}
