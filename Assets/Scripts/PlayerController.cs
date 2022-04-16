@@ -7,11 +7,13 @@ public class PlayerController : MonoBehaviour
     private TextMeshProUGUI scoresTextMesh, livesTextMesh;
     private readonly float horizontalRestriction = 5.7f;
     private readonly float playerSpeed = 100f;
-    private int playerScore = 0, lives = 3;
+    private int playerScore, lives;
     private bool gameOverFlag = false;
 
     private void Start()
     {
+        playerScore = PlayerPrefs.HasKey("Score") ? PlayerPrefs.GetInt("Score") : 0;
+        lives = PlayerPrefs.HasKey("Lives") ? PlayerPrefs.GetInt("Lives") : 3;
         Cursor.visible = false;
         gameOverMenu.SetActive(false);
         pauseMenu.SetActive(false);
@@ -47,10 +49,9 @@ public class PlayerController : MonoBehaviour
         scoresTextMesh.text = playerScore.ToString();
     }
 
-    // This method is not necessary and can be deleted.
-    public int GetScore()
+    public int[] GetPlayerData()
     {
-        return playerScore;
+        return new int[] { playerScore, lives };
     }
 
     public void ChangeLivesCount(int count)

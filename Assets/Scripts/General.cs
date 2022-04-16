@@ -6,6 +6,10 @@ public class General : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
 
     public void StartGame()
@@ -29,5 +33,10 @@ public class General : MonoBehaviour
     {
         Time.timeScale = 1;
         Cursor.visible = false;
+    }
+
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

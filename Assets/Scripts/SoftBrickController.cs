@@ -22,6 +22,7 @@ public class SoftBrickController : Brick, IBrickInterface
                 BonusAction(gameObject);
             }
             playerController.AddScore(properties.Score);
+            SceneChanger(playerController.GetPlayerData());
             Destroy(gameObject);
         }
     }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Brick : MonoBehaviour
 {
@@ -12,6 +13,24 @@ public class Brick : MonoBehaviour
         else
         {
             _ = Instantiate(liveBonusPrefab, generator.transform.position, Quaternion.Euler(0, 0, 0));
+        }
+    }
+
+    protected void SceneChanger(int[] data)
+    {
+        if (GameObject.FindGameObjectsWithTag("Brick").Length == 1)
+        {
+            if (SceneManager.GetActiveScene().name == "Level1")
+            {
+                PlayerPrefs.SetInt("Score", data[0]);
+                PlayerPrefs.SetInt("Lives", data[1]);
+                SceneManager.LoadScene("Level2");
+            }
+            else
+            {
+                // SHow scores
+                // Go to the main menu
+            }
         }
     }
 }
