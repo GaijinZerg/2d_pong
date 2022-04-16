@@ -124,3 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b05804ee6292cce4fb09babe8ace75e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreBonusPrefab: {fileID: 1946879527527632091, guid: 5fc8328a6922fa742b64d7e7e723e67b, type: 3}
+  liveBonusPrefab: {fileID: 2233339974812390750, guid: b2a5a21444c85f54a9c1d6f686e83066, type: 3}

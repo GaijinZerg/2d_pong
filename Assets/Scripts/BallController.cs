@@ -2,12 +2,16 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
+    private GameObject player;
+    private PlayerController playerController;
     private Rigidbody2D ballRigidbody;
     private float ballSpeed = 5;
     private Vector2 bounceDirection, lastVelocity;
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
         ballRigidbody = gameObject.GetComponent<Rigidbody2D>();
         // Start pulse.
         ballRigidbody.AddForce(new Vector2(100f, -100f), ForceMode2D.Force);
@@ -27,6 +31,16 @@ public class BallController : MonoBehaviour
         if (collision.gameObject.GetComponent<IBrickInterface>() != null)
         {
             collision.gameObject.GetComponent<IBrickInterface>().Action();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("LowerTrigger"))
+        {
+            playerController.ChangeLivesCount(-1);
+            playerController.GameEndController();
+            Destroy(gameObject);
         }
     }
 }

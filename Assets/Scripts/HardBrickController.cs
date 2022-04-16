@@ -11,28 +11,18 @@ public class HardBrickController : Brick, IBrickInterface
         playerController = player.GetComponent<PlayerController>();
     }
 
-    BrickProperties properties = new BrickProperties(2, 400, 0.1f);
+    BrickProperties properties = new(2, 400, 0.2f);
     public void Action()
     {
         properties.Durability--;
-        Debug.Log(properties.Durability);
-        if (properties.BonusChance > Random.Range(0f, 1f))
-        {
-            BonusAction();
-        }
         if (properties.Durability == 0)
         {
+            if (properties.BonusChance > Random.Range(0f, 1f))
+            {
+                BonusAction(gameObject);
+            }
+            playerController.AddScore(properties.Score);
             Destroy(gameObject);
         }
-    }
-
-    protected override void BonusAction()
-    {
-        // Bonus action.
-    }
-
-    private void OnDestroy()
-    {
-        playerController.AddScore(properties.Score);
     }
 }
