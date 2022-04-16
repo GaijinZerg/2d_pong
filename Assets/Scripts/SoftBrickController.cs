@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class SoftBrickController : Brick, IBrickInterface
 {
-    private GameObject player;
+    private GameObject player, generalObject;
+    private General generalComponent;
     private PlayerController playerController;
 
     public void Start()
     {
+        generalObject = GameObject.FindGameObjectWithTag("General");
+        generalComponent = generalObject.GetComponent<General>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
     }
@@ -22,7 +25,7 @@ public class SoftBrickController : Brick, IBrickInterface
                 BonusAction(gameObject);
             }
             playerController.AddScore(properties.Score);
-            SceneChanger(playerController.GetPlayerData());
+            generalComponent.SceneChanger(playerController.GetPlayerData());
             Destroy(gameObject);
         }
     }

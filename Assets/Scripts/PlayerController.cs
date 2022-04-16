@@ -99,4 +99,9 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
+
+    public void SetGameOverFlag(bool flag)
+    {
+        gameOverFlag = flag;
+    }
 }
