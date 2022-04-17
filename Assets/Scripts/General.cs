@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class General : MonoBehaviour
 {
-    [SerializeField] private GameObject finishMenu, scoreText, player;
+    [SerializeField] private GameObject finishMenu, nextLevelMenu, scoreText, player;
     private PlayerController playerController;
     void Start()
     {
@@ -44,6 +44,13 @@ public class General : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void StartNextLevel()
+    {
+        Time.timeScale = 1;
+        Cursor.visible = false;
+        SceneManager.LoadScene("Level2");
+    }
+
     public void SceneChanger(int[] data)
     {
         if (GameObject.FindGameObjectsWithTag("Brick").Length == 1)
@@ -52,7 +59,9 @@ public class General : MonoBehaviour
             {
                 PlayerPrefs.SetInt("Score", data[0]);
                 PlayerPrefs.SetInt("Lives", data[1]);
-                SceneManager.LoadScene("Level2");
+                Time.timeScale = 0;
+                Cursor.visible = true;
+                nextLevelMenu.SetActive(true);
             }
             else
             {

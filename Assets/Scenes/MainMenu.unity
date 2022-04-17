@@ -1228,6 +1228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishMenu: {fileID: 1172926891}
+  nextLevelMenu: {fileID: 1172926891}
   scoreText: {fileID: 1172926891}
   player: {fileID: 1172926891}
 --- !u!4 &1718477161
