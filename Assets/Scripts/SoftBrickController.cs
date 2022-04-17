@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Provides unique functions for the soft brick.
+/// </summary>
 public class SoftBrickController : Brick, IBrickInterface
 {
     BrickProperties properties = new(1, 100, 0.2f);
@@ -13,8 +16,8 @@ public class SoftBrickController : Brick, IBrickInterface
             {
                 BonusAction(gameObject);
             }
-            playerController.AddScore(properties.Score);
-            generalComponent.SceneChanger(playerController.GetPlayerData());
+            PlayerController.AddScore(properties.Score);
+            GeneralComponent.SceneChanger(PlayerController.GetPlayerData());
             Destroy(gameObject);
         }
     }

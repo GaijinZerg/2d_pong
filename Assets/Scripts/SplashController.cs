@@ -1,14 +1,18 @@
 using UnityEngine;
 
+/// <summary>
+/// Controls splash effect object.
+/// </summary>
 public class SplashController : MonoBehaviour
 {
-    private float timer = 1;
+    private float _timer = 1;
 
-    // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-        if (timer < 0)
+        _timer -= Time.deltaTime;
+        if (_timer < 0)
+        {
             Destroy(gameObject);
+        }
     }
 }

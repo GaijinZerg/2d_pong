@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Provides functionality for non-stop music playing.
+/// </summary>
 public class AuxiliaryMusicController : MonoBehaviour
 {
     private void Start()

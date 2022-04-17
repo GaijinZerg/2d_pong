@@ -726,10 +726,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f1bcece65a19694397f2046fd7d8668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finishMenu: {fileID: 1161296852}
-  nextLevelMenu: {fileID: 1663966142}
-  scoreText: {fileID: 1161296852}
-  player: {fileID: 288091782}
+  _finishMenu: {fileID: 1161296852}
+  _nextLevelMenu: {fileID: 1663966142}
+  _scoreText: {fileID: 84636257}
+  _player: {fileID: 288091782}
 --- !u!4 &291817654
 Transform:
   m_ObjectHideFlags: 0
@@ -4186,7 +4186,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819637770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.894201, y: 0.07847555, z: -0.08802111}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4976,11 +4976,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1773526476}
     - target: {fileID: 5646634291120784082, guid: 09f265ed6dae1a64196eb67c928389d1, type: 3}
+      propertyPath: _livesText
+      value: 
+      objectReference: {fileID: 58867176}
+    - target: {fileID: 5646634291120784082, guid: 09f265ed6dae1a64196eb67c928389d1, type: 3}
+      propertyPath: _pauseMenu
+      value: 
+      objectReference: {fileID: 1773526476}
+    - target: {fileID: 5646634291120784082, guid: 09f265ed6dae1a64196eb67c928389d1, type: 3}
       propertyPath: scoresText
       value: 
       objectReference: {fileID: 84636257}
     - target: {fileID: 5646634291120784082, guid: 09f265ed6dae1a64196eb67c928389d1, type: 3}
+      propertyPath: _ballPrefab
+      value: 
+      objectReference: {fileID: 7278630863719665287, guid: 38a55605ed58cd544bb2d6af9ac36a09, type: 3}
+    - target: {fileID: 5646634291120784082, guid: 09f265ed6dae1a64196eb67c928389d1, type: 3}
+      propertyPath: _scoresText
+      value: 
+      objectReference: {fileID: 84636257}
+    - target: {fileID: 5646634291120784082, guid: 09f265ed6dae1a64196eb67c928389d1, type: 3}
       propertyPath: gameOverMenu
+      value: 
+      objectReference: {fileID: 785962164}
+    - target: {fileID: 5646634291120784082, guid: 09f265ed6dae1a64196eb67c928389d1, type: 3}
+      propertyPath: _gameOverMenu
       value: 
       objectReference: {fileID: 785962164}
     - target: {fileID: 5646634291120784084, guid: 09f265ed6dae1a64196eb67c928389d1, type: 3}
@@ -5088,5 +5108,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 7878119724176241193, guid: 38a55605ed58cd544bb2d6af9ac36a09, type: 3}
+      propertyPath: _soundEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878119724176241193, guid: 38a55605ed58cd544bb2d6af9ac36a09, type: 3}
+      propertyPath: _soundEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: daed05bb1915e8e49b909effa5ae8f51, type: 3}
+    - target: {fileID: 7878119724176241193, guid: 38a55605ed58cd544bb2d6af9ac36a09, type: 3}
+      propertyPath: _soundEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: a457f4e38a6df6d4cabf504c64bc7c31, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38a55605ed58cd544bb2d6af9ac36a09, type: 3}

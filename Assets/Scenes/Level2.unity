@@ -707,10 +707,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f1bcece65a19694397f2046fd7d8668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finishMenu: {fileID: 189432092}
-  nextLevelMenu: {fileID: 43971256}
-  scoreText: {fileID: 1860679260}
-  player: {fileID: 691301384}
+  _finishMenu: {fileID: 189432092}
+  _nextLevelMenu: {fileID: 43971256}
+  _scoreText: {fileID: 84636257}
+  _player: {fileID: 691301384}
 --- !u!4 &291817654
 Transform:
   m_ObjectHideFlags: 0
@@ -1673,11 +1673,27 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1773526476}
     - target: {fileID: 5646634291120784082, guid: 09f265ed6dae1a64196eb67c928389d1, type: 3}
+      propertyPath: _livesText
+      value: 
+      objectReference: {fileID: 58867176}
+    - target: {fileID: 5646634291120784082, guid: 09f265ed6dae1a64196eb67c928389d1, type: 3}
+      propertyPath: _pauseMenu
+      value: 
+      objectReference: {fileID: 1773526476}
+    - target: {fileID: 5646634291120784082, guid: 09f265ed6dae1a64196eb67c928389d1, type: 3}
       propertyPath: scoresText
       value: 
       objectReference: {fileID: 84636257}
     - target: {fileID: 5646634291120784082, guid: 09f265ed6dae1a64196eb67c928389d1, type: 3}
+      propertyPath: _scoresText
+      value: 
+      objectReference: {fileID: 84636257}
+    - target: {fileID: 5646634291120784082, guid: 09f265ed6dae1a64196eb67c928389d1, type: 3}
       propertyPath: gameOverMenu
+      value: 
+      objectReference: {fileID: 785962164}
+    - target: {fileID: 5646634291120784082, guid: 09f265ed6dae1a64196eb67c928389d1, type: 3}
+      propertyPath: _gameOverMenu
       value: 
       objectReference: {fileID: 785962164}
     - target: {fileID: 5646634291120784084, guid: 09f265ed6dae1a64196eb67c928389d1, type: 3}
@@ -4677,7 +4693,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819637770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.894201, y: 0.07847555, z: -0.08802111}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

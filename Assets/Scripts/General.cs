@@ -2,13 +2,17 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Provides general functions for game flow.
+/// </summary>
 public class General : MonoBehaviour
 {
-    [SerializeField] private GameObject finishMenu, nextLevelMenu, scoreText, player;
-    private PlayerController playerController;
+    [SerializeField] private GameObject _finishMenu, _nextLevelMenu, _scoreText, _player;
+    private PlayerController _playerController;
+
     void Start()
     {
-        playerController = player.GetComponent<PlayerController>();
+        _playerController = _player.GetComponent<PlayerController>();
         Time.timeScale = 1;
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
@@ -67,15 +71,15 @@ public class General : MonoBehaviour
                 PlayerPrefs.SetInt("Lives", data[1]);
                 Time.timeScale = 0;
                 Cursor.visible = true;
-                nextLevelMenu.SetActive(true);
+                _nextLevelMenu.SetActive(true);
             }
             else
             {
                 Time.timeScale = 0;
-                playerController.SetGameOverFlag(true);
+                _playerController.SetGameOverFlag(true);
                 Cursor.visible = true;
-                finishMenu.SetActive(true);
-                scoreText.GetComponent<TextMeshProUGUI>().text = data[0].ToString();
+                _finishMenu.SetActive(true);
+                _scoreText.GetComponent<TextMeshProUGUI>().text = data[0].ToString();
             }
         }
     }

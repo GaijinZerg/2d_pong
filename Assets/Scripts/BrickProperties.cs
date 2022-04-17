@@ -1,3 +1,6 @@
+/// <summary>
+/// Stores the brick properties.
+/// </summary>
 public class BrickProperties
 {
     public int Durability;

@@ -98,11 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90bf0a9957fe6354890794e70a4aefb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 7278630863719665287, guid: 38a55605ed58cd544bb2d6af9ac36a09, type: 3}
-  gameOverMenu: {fileID: 0}
-  pauseMenu: {fileID: 0}
-  scoresText: {fileID: 0}
-  livesText: {fileID: 0}
+  _ballPrefab: {fileID: 7278630863719665287, guid: 38a55605ed58cd544bb2d6af9ac36a09, type: 3}
+  _gameOverMenu: {fileID: 0}
+  _pauseMenu: {fileID: 0}
+  _scoresText: {fileID: 0}
+  _livesText: {fileID: 0}
 --- !u!60 &5646634291120784083
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -1,23 +1,26 @@
 using UnityEngine;
 
+/// <summary>
+/// Controls the music playing.
+/// </summary>
 public class MusicController : MonoBehaviour
 {
-    private AudioSource audioSource;
+    private AudioSource _audioSource;
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        audioSource = gameObject.GetComponent<AudioSource>();
+        _audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     public void PlayMusic()
     {
-        if (audioSource.isPlaying) return;
-        audioSource.Play();
+        if (_audioSource.isPlaying) return;
+        _audioSource.Play();
     }
 
     public void StopMusic()
     {
-        audioSource.Stop();
+        _audioSource.Stop();
     }
 }

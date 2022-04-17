@@ -1,18 +1,22 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Allows to adjust mouse sensitivity.
+/// </summary>
 public class SensitivityController : MonoBehaviour
 {
-    private Slider slider;
+    private Slider _slider;
+
     void Start()
     {
-        slider = gameObject.GetComponent<Slider>();
+        _slider = gameObject.GetComponent<Slider>();
         if (!PlayerPrefs.HasKey("Sensitivity"))
         {
             PlayerPrefs.SetFloat("Sensitivity", 1);
         }
-        slider.value = PlayerPrefs.GetFloat("Sensitivity");
-        slider.onValueChanged.AddListener ((sens) =>
+        _slider.value = PlayerPrefs.GetFloat("Sensitivity");
+        _slider.onValueChanged.AddListener ((sens) =>
         {
             PlayerPrefs.SetFloat("Sensitivity", sens);
         });

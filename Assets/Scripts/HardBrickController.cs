@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Provides unique functions for the hard brick.
+/// </summary>
 public class HardBrickController : Brick, IBrickInterface
 {
     BrickProperties properties = new(2, 400, 0.2f);
@@ -19,8 +22,8 @@ public class HardBrickController : Brick, IBrickInterface
             {
                 BonusAction(gameObject);
             }
-            playerController.AddScore(properties.Score);
-            generalComponent.SceneChanger(playerController.GetPlayerData());
+            PlayerController.AddScore(properties.Score);
+            GeneralComponent.SceneChanger(PlayerController.GetPlayerData());
             Destroy(gameObject);
         }
     }

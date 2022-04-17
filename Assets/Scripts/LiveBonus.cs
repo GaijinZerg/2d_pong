@@ -1,10 +1,15 @@
 using UnityEngine;
+
+/// <summary>
+/// Specifies live bonus properties.
+/// </summary>
 public class LiveBonus : MonoBehaviour, IBonusInterface
 {
-    private readonly int bonusType = 2;
+    private readonly int _bonusType = 2;
+
     public int ReturnBonusType()
     {
-        return bonusType;
+        return _bonusType;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

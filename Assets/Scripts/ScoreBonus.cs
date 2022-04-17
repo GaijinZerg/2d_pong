@@ -1,10 +1,15 @@
 using UnityEngine;
+
+/// <summary>
+/// Specifies score bonus properties.
+/// </summary>
 public class ScoreBonus : MonoBehaviour, IBonusInterface
 {
-    private readonly int bonusType = 1;
+    private readonly int _bonusType = 1;
+
     public int ReturnBonusType()
     {
-        return bonusType;
+        return _bonusType;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

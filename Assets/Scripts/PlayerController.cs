@@ -1,79 +1,82 @@
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Provides functions for the player and some scene management.
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private GameObject ballPrefab, gameOverMenu, pauseMenu, scoresText, livesText;
-    private TextMeshProUGUI scoresTextMesh, livesTextMesh;
-    private readonly float horizontalRestriction = 5.7f;
-    private readonly float playerSpeed = 50f;
-    private float sensitivity;
-    private int playerScore, lives;
-    private bool gameOverFlag = false;
+    [SerializeField] private GameObject _ballPrefab, _gameOverMenu, _pauseMenu, _scoresText, _livesText;
+    private TextMeshProUGUI _scoresTextMesh, _livesTextMesh;
+    private readonly float _horizontalRestriction = 5.7f;
+    private readonly float _playerSpeed = 50f;
+    private float _sensitivity;
+    private int _playerScore, _lives;
+    private bool _gameOverFlag = false;
 
     private void Start()
     {
-        sensitivity = PlayerPrefs.HasKey("Sensitivity") ? PlayerPrefs.GetFloat("Sensitivity") : 1;
-        playerScore = PlayerPrefs.HasKey("Score") ? PlayerPrefs.GetInt("Score") : 0;
-        lives = PlayerPrefs.HasKey("Lives") ? PlayerPrefs.GetInt("Lives") : 3;
+        _sensitivity = PlayerPrefs.HasKey("Sensitivity") ? PlayerPrefs.GetFloat("Sensitivity") : 1;
+        _playerScore = PlayerPrefs.HasKey("Score") ? PlayerPrefs.GetInt("Score") : 0;
+        _lives = PlayerPrefs.HasKey("Lives") ? PlayerPrefs.GetInt("Lives") : 3;
         Cursor.visible = false;
-        gameOverMenu.SetActive(false);
-        pauseMenu.SetActive(false);
-        scoresTextMesh = scoresText.GetComponent<TextMeshProUGUI>();
-        scoresTextMesh.text = playerScore.ToString();
-        livesTextMesh = livesText.GetComponent<TextMeshProUGUI>();
-        livesTextMesh.text = lives.ToString();
+        _gameOverMenu.SetActive(false);
+        _pauseMenu.SetActive(false);
+        _scoresTextMesh = _scoresText.GetComponent<TextMeshProUGUI>();
+        _scoresTextMesh.text = _playerScore.ToString();
+        _livesTextMesh = _livesText.GetComponent<TextMeshProUGUI>();
+        _livesTextMesh.text = _lives.ToString();
     }
     void Update()
     {
         // Restrict horizontal movement of the player.
-        if (Mathf.Abs(gameObject.transform.position.x) <= horizontalRestriction)
+        if (Mathf.Abs(gameObject.transform.position.x) <= _horizontalRestriction)
         {
-            gameObject.transform.position = gameObject.transform.position + new Vector3(Input.GetAxis("Mouse X") * playerSpeed * sensitivity * Time.deltaTime, 0, 0);
+            gameObject.transform.position = gameObject.transform.position + new Vector3(Input.GetAxis("Mouse X") * _playerSpeed * _sensitivity * Time.deltaTime, 0, 0);
         }
         else
         {
-            gameObject.transform.position = new Vector2(horizontalRestriction * Mathf.Sign(gameObject.transform.position.x), gameObject.transform.position.y);
+            gameObject.transform.position = new Vector2(_horizontalRestriction * Mathf.Sign(gameObject.transform.position.x), gameObject.transform.position.y);
         }
 
         // Call for the pause menu.
-        if (Input.GetKeyDown(KeyCode.Escape) && !gameOverFlag)
+        if (Input.GetKeyDown(KeyCode.Escape) && !_gameOverFlag)
         {
             Cursor.visible = true;
             Time.timeScale = 0;
-            pauseMenu.SetActive(true);
+            _pauseMenu.SetActive(true);
         }
     }
 
     public void AddScore(int add)
     {
-        playerScore += add;
-        scoresTextMesh.text = playerScore.ToString();
+        _playerScore += add;
+        _scoresTextMesh.text = _playerScore.ToString();
     }
 
     public int[] GetPlayerData()
     {
-        return new int[] { playerScore, lives };
+        return new int[] { _playerScore, _lives };
     }
 
     public void ChangeLivesCount(int count)
     {
-        lives += count;
-        livesTextMesh.text = lives.ToString();
+        _lives += count;
+        _livesTextMesh.text = _lives.ToString();
     }
 
     public void GameEndController()
     {
-        if (lives > 0)
+        if (_lives > 0)
         {
-            _ = Instantiate(ballPrefab, new Vector2(0, 0), Quaternion.Euler(0, 0, 0));
+            _ = Instantiate(_ballPrefab, new Vector2(0, 0), Quaternion.Euler(0, 0, 0));
         }
         else
         {
-            gameOverFlag = true;
+            _gameOverFlag = true;
             Time.timeScale = 0;
             Cursor.visible = true;
-            gameOverMenu.SetActive(true);
+            _gameOverMenu.SetActive(true);
         }
     }
 
@@ -104,6 +107,6 @@ public class PlayerController : MonoBehaviour
 
     public void SetGameOverFlag(bool flag)
     {
-        gameOverFlag = flag;
+        _gameOverFlag = flag;
     }
 }

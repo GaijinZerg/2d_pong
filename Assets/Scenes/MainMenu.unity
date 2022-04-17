@@ -2431,10 +2431,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f1bcece65a19694397f2046fd7d8668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finishMenu: {fileID: 1172926891}
-  nextLevelMenu: {fileID: 1172926891}
-  scoreText: {fileID: 1172926891}
-  player: {fileID: 1172926891}
+  _finishMenu: {fileID: 1172926891}
+  _nextLevelMenu: {fileID: 1172926891}
+  _scoreText: {fileID: 1172926891}
+  _player: {fileID: 1172926891}
 --- !u!4 &1718477161
 Transform:
   m_ObjectHideFlags: 0
@@ -2558,8 +2558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0af38bdc724ecc4c93fb4f0a7719e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  versionObject: {fileID: 1954641553}
-  studioObject: {fileID: 979066488}
+  _versionObject: {fileID: 1954641553}
+  _studioObject: {fileID: 979066488}
 --- !u!1 &1735096197
 GameObject:
   m_ObjectHideFlags: 0
