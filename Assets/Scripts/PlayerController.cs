@@ -6,12 +6,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject ballPrefab, gameOverMenu, pauseMenu, scoresText, livesText;
     private TextMeshProUGUI scoresTextMesh, livesTextMesh;
     private readonly float horizontalRestriction = 5.7f;
-    private readonly float playerSpeed = 100f;
+    private readonly float playerSpeed = 50f;
+    private float sensitivity;
     private int playerScore, lives;
     private bool gameOverFlag = false;
 
     private void Start()
     {
+        sensitivity = PlayerPrefs.HasKey("Sensitivity") ? PlayerPrefs.GetFloat("Sensitivity") : 1;
         playerScore = PlayerPrefs.HasKey("Score") ? PlayerPrefs.GetInt("Score") : 0;
         lives = PlayerPrefs.HasKey("Lives") ? PlayerPrefs.GetInt("Lives") : 3;
         Cursor.visible = false;
@@ -27,7 +29,7 @@ public class PlayerController : MonoBehaviour
         // Restrict horizontal movement of the player.
         if (Mathf.Abs(gameObject.transform.position.x) <= horizontalRestriction)
         {
-            gameObject.transform.position = gameObject.transform.position + new Vector3(Input.GetAxis("Mouse X") * playerSpeed * Time.deltaTime, 0, 0);
+            gameObject.transform.position = gameObject.transform.position + new Vector3(Input.GetAxis("Mouse X") * playerSpeed * sensitivity * Time.deltaTime, 0, 0);
         }
         else
         {

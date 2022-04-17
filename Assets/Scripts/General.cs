@@ -12,7 +12,8 @@ public class General : MonoBehaviour
         Time.timeScale = 1;
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
-            PlayerPrefs.DeleteAll();
+            PlayerPrefs.DeleteKey("Score");
+            PlayerPrefs.DeleteKey("Lives");
         }
     }
 
@@ -23,13 +24,15 @@ public class General : MonoBehaviour
 
     public void ExitGame()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey("Score");
+        PlayerPrefs.DeleteKey("Lives");
         Application.Quit();
     }
 
     public void ReturnToMenu()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey("Score");
+        PlayerPrefs.DeleteKey("Lives");
         SceneManager.LoadScene("MainMenu");
     }
 
