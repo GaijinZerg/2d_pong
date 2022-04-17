@@ -33,6 +33,7 @@ public class General : MonoBehaviour
     {
         PlayerPrefs.DeleteKey("Score");
         PlayerPrefs.DeleteKey("Lives");
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicController>().StopMusic();
         SceneManager.LoadScene("MainMenu");
     }
 

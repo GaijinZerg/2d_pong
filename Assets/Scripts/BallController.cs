@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
+    [SerializeField] private AudioClip[] soundEffects;
+    private AudioSource soundComponent;
     private GameObject player;
     private PlayerController playerController;
     private Rigidbody2D ballRigidbody;
@@ -10,6 +12,7 @@ public class BallController : MonoBehaviour
 
     private void Start()
     {
+        soundComponent = gameObject.GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         ballRigidbody = gameObject.GetComponent<Rigidbody2D>();
@@ -24,6 +27,8 @@ public class BallController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        soundComponent.clip = soundEffects[0];
+        soundComponent.Play();
         // We need to keep the ball speed constant.
         // It can be avoided if we do not use Rigidbody but we must use Rigidbody due to the task requirements.
         bounceDirection = Vector2.Reflect(lastVelocity.normalized, collision.contacts[0].normal);
@@ -38,6 +43,7 @@ public class BallController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("LowerTrigger"))
         {
+            AudioSource.PlayClipAtPoint(soundEffects[1], gameObject.transform.position);
             playerController.ChangeLivesCount(-1);
             playerController.GameEndController();
             Destroy(gameObject);

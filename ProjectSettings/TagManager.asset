@@ -8,6 +8,7 @@ TagManager:
   - Bonus
   - Brick
   - General
+  - Music
   layers:
   - Default
   - TransparentFX
