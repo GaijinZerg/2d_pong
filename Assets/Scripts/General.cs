@@ -33,7 +33,8 @@ public class General : MonoBehaviour
     {
         PlayerPrefs.DeleteKey("Score");
         PlayerPrefs.DeleteKey("Lives");
-        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicController>().StopMusic();
+        if (GameObject.FindGameObjectWithTag("Music") != null) 
+            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicController>().StopMusic();
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -45,6 +46,7 @@ public class General : MonoBehaviour
 
     public void ReloadLevel()
     {
+        PlayerPrefs.SetInt("Lives", 3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
