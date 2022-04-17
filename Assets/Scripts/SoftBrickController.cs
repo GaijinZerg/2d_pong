@@ -20,6 +20,7 @@ public class SoftBrickController : Brick, IBrickInterface
         properties.Durability--;
         if (properties.Durability == 0)
         {
+            _ = Instantiate(splashPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
             if (properties.BonusChance > Random.Range(0f, 1f))
             {
                 BonusAction(gameObject);

@@ -3,6 +3,7 @@ using UnityEngine;
 public class Brick : MonoBehaviour
 {
     [SerializeField] private GameObject scoreBonusPrefab, liveBonusPrefab;
+    [SerializeField] protected GameObject splashPrefab;
 
     protected void BonusAction(GameObject generator)
     {

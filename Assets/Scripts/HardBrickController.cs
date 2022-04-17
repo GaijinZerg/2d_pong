@@ -11,7 +11,7 @@ public class HardBrickController : Brick, IBrickInterface
         generalObject = GameObject.FindGameObjectWithTag("General");
         generalComponent = generalObject.GetComponent<General>();
         player = GameObject.FindGameObjectWithTag("Player");
-        playerController = player.GetComponent<PlayerController>();
+        playerController = player.GetComponent<PlayerController>();        
     }
 
     BrickProperties properties = new(2, 400, 0.2f);
@@ -26,6 +26,7 @@ public class HardBrickController : Brick, IBrickInterface
         }
         if (properties.Durability == 0)
         {
+            _ = Instantiate(splashPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
             if (properties.BonusChance > Random.Range(0f, 1f))
             {
                 BonusAction(gameObject);
