@@ -2,18 +2,6 @@ using UnityEngine;
 
 public class SoftBrickController : Brick, IBrickInterface
 {
-    private GameObject player, generalObject;
-    private General generalComponent;
-    private PlayerController playerController;
-
-    public void Start()
-    {
-        generalObject = GameObject.FindGameObjectWithTag("General");
-        generalComponent = generalObject.GetComponent<General>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerController = player.GetComponent<PlayerController>();
-    }
-
     BrickProperties properties = new(1, 100, 0.2f);
     public void Action()
     {

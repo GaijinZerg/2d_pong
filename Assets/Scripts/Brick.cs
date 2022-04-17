@@ -4,6 +4,17 @@ public class Brick : MonoBehaviour
 {
     [SerializeField] private GameObject scoreBonusPrefab, liveBonusPrefab;
     [SerializeField] protected GameObject splashPrefab;
+    protected GameObject player, generalObject;
+    protected General generalComponent;
+    protected PlayerController playerController;
+
+    public void Start()
+    {
+        generalObject = GameObject.FindGameObjectWithTag("General");
+        generalComponent = generalObject.GetComponent<General>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
+    }
 
     protected void BonusAction(GameObject generator)
     {
