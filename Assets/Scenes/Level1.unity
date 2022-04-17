@@ -728,7 +728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _finishMenu: {fileID: 1161296852}
   _nextLevelMenu: {fileID: 1663966142}
-  _scoreText: {fileID: 84636257}
+  _scoreText: {fileID: 1161296852}
   _player: {fileID: 288091782}
 --- !u!4 &291817654
 Transform:
