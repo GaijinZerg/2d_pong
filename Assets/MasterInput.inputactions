@@ -1,0 +1,102 @@
+{
+    "name": "MasterInput",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "92b2e523-6d99-4ea6-90f2-1ef75ecd5b65",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "PassThrough",
+                    "id": "fec6549c-e3a5-44ff-9f6a-fae58c2ee3b1",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Action",
+                    "type": "Button",
+                    "id": "4ae479fa-d5cc-45dd-b0ae-95994601b6fd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Return",
+                    "type": "Button",
+                    "id": "73afc45a-2086-4a94-9579-754fd63c3030",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2ffeca3f-cfa7-4c9b-bfa6-f27c9542709f",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "252790bc-23c3-4ce9-922e-21e84deeb858",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(pressPoint=0.1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "62cc3a0b-0e44-4f2c-b405-db942a316707",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "Press(pressPoint=0.1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Return",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "21577631-ffc0-48f6-837a-97d4614bfc3b",
+            "actions": [
+                {
+                    "name": "Return",
+                    "type": "Button",
+                    "id": "127a1f45-6f6b-4ec2-9d03-7e7743a0cb69",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4f2a9fde-3fe9-4210-afd7-ae206ea234c2",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Return",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

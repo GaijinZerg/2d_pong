@@ -14,6 +14,12 @@ public class PlayerController : MonoBehaviour
     private int _playerScore, _lives;
     private bool _gameOverFlag = false;
 
+    public bool gameOverFlag
+    {
+        get { return _gameOverFlag; }
+        set { _gameOverFlag = value; }
+    }
+
     private void Start()
     {
         _sensitivity = PlayerPrefs.HasKey("Sensitivity") ? PlayerPrefs.GetFloat("Sensitivity") : 1;
@@ -27,24 +33,17 @@ public class PlayerController : MonoBehaviour
         _livesTextMesh = _livesText.GetComponent<TextMeshProUGUI>();
         _livesTextMesh.text = _lives.ToString();
     }
-    void Update()
+
+    public void Move(Vector2 move)
     {
         // Restrict horizontal movement of the player.
         if (Mathf.Abs(gameObject.transform.position.x) <= _horizontalRestriction)
         {
-            gameObject.transform.position = gameObject.transform.position + new Vector3(Input.GetAxis("Mouse X") * _playerSpeed * _sensitivity * Time.deltaTime, 0, 0);
+            gameObject.transform.position = gameObject.transform.position + new Vector3(move.x * _playerSpeed * _sensitivity * Time.deltaTime, 0, 0);
         }
         else
         {
             gameObject.transform.position = new Vector2(_horizontalRestriction * Mathf.Sign(gameObject.transform.position.x), gameObject.transform.position.y);
-        }
-
-        // Call for the pause menu.
-        if (Input.GetKeyDown(KeyCode.Escape) && !_gameOverFlag)
-        {
-            Cursor.visible = true;
-            Time.timeScale = 0;
-            _pauseMenu.SetActive(true);
         }
     }
 
@@ -103,10 +102,5 @@ public class PlayerController : MonoBehaviour
             default:
                 break;
         }
-    }
-
-    public void SetGameOverFlag(bool flag)
-    {
-        _gameOverFlag = flag;
     }
 }

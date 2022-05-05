@@ -7,13 +7,14 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class General : MonoBehaviour
 {
-    [SerializeField] private GameObject _finishMenu, _nextLevelMenu, _scoreText, _player;
+    [SerializeField] private GameObject _finishMenu, _nextLevelMenu, _scoreText, _player, _pauseMenu;
     private PlayerController _playerController;
 
     void Start()
     {
         _playerController = _player.GetComponent<PlayerController>();
         Time.timeScale = 1;
+        Cursor.visible = false;
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             PlayerPrefs.DeleteKey("Score");
@@ -21,19 +22,29 @@ public class General : MonoBehaviour
         }
     }
 
-    public void StartGame()
+    public static void StartGame()
     {
         SceneManager.LoadScene("Level1");
     }
 
-    public void ExitGame()
+    public static void ExitGame()
     {
         PlayerPrefs.DeleteKey("Score");
         PlayerPrefs.DeleteKey("Lives");
         Application.Quit();
     }
 
-    public void ReturnToMenu()
+    public void PauseGame()
+    {
+        if (!_playerController.gameOverFlag)
+        {
+            Cursor.visible = true;
+            Time.timeScale = 0;
+            _pauseMenu.SetActive(true);
+        }
+    }
+
+    public static void ReturnToMenu()
     {
         PlayerPrefs.DeleteKey("Score");
         PlayerPrefs.DeleteKey("Lives");
@@ -46,15 +57,16 @@ public class General : MonoBehaviour
     {
         Time.timeScale = 1;
         Cursor.visible = false;
+        _pauseMenu.SetActive(false);
     }
 
-    public void ReloadLevel()
+    public static void ReloadLevel()
     {
         PlayerPrefs.SetInt("Lives", 3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void StartNextLevel()
+    public static void StartNextLevel()
     {
         Time.timeScale = 1;
         Cursor.visible = false;
@@ -76,7 +88,7 @@ public class General : MonoBehaviour
             else
             {
                 Time.timeScale = 0;
-                _playerController.SetGameOverFlag(true);
+                _playerController.gameOverFlag = true;
                 Cursor.visible = true;
                 _finishMenu.SetActive(true);
                 _scoreText.GetComponent<TextMeshProUGUI>().text = data[0].ToString();

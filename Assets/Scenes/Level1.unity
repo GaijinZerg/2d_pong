@@ -707,6 +707,7 @@ GameObject:
   m_Component:
   - component: {fileID: 291817654}
   - component: {fileID: 291817653}
+  - component: {fileID: 291817655}
   m_Layer: 0
   m_Name: General
   m_TagString: General
@@ -730,6 +731,7 @@ MonoBehaviour:
   _nextLevelMenu: {fileID: 1663966142}
   _scoreText: {fileID: 1161296852}
   _player: {fileID: 288091782}
+  _pauseMenu: {fileID: 1773526476}
 --- !u!4 &291817654
 Transform:
   m_ObjectHideFlags: 0
@@ -745,6 +747,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &291817655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291817652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7347bc1e391e8245b1253a28a76c6fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &322447127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3663,6 +3677,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 291817655}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: ReloadInput
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
