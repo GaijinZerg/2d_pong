@@ -7,6 +7,11 @@ public class SlowDownBonus : MonoBehaviour, IBonusInterface
 {
     private readonly int _bonusType = 4;
 
+    private void Start()
+    {
+        gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1), ForceMode2D.Impulse);
+    }
+
     public int ReturnBonusType()
     {
         return _bonusType;

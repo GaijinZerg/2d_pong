@@ -85,6 +85,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Bonus"))
         {
             ProcessBonus(collision.gameObject.GetComponent<IBonusInterface>().ReturnBonusType());
+            Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Brick"))
         {
