@@ -10,7 +10,7 @@ public class BallController : MonoBehaviour
     private GameObject _player;
     private PlayerController _playerController;
     private Rigidbody2D _ballRigidbody;
-    private float _ballSpeed = 5;
+    private float _ballSpeed = 5, _speedModifier = 1f, _timer = 0f, _speedUpTime = 30f;
     private Vector2 _bounceDirection, _lastVelocity;
 
     private void Start()
@@ -25,6 +25,12 @@ public class BallController : MonoBehaviour
 
     private void Update()
     {
+        _timer += Time.deltaTime;
+        if (_timer > _speedUpTime)
+        {
+            _speedModifier = Mathf.Clamp(_speedModifier * 1.1f, 0.5f, 2f); ;
+            _timer = 0f;
+        }
         _lastVelocity = _ballRigidbody.velocity;
     }
 
@@ -35,7 +41,7 @@ public class BallController : MonoBehaviour
         // We need to keep the ball speed constant.
         // It can be avoided if we do not use Rigidbody but we must use Rigidbody due to the task requirements.
         _bounceDirection = Vector2.Reflect(_lastVelocity.normalized, collision.contacts[0].normal);
-        _ballRigidbody.velocity = _bounceDirection * _ballSpeed;
+        _ballRigidbody.velocity = _bounceDirection * _ballSpeed * _speedModifier;
         if (collision.gameObject.GetComponent<IBrickInterface>() != null)
         {
             collision.gameObject.GetComponent<IBrickInterface>().Action();
@@ -52,5 +58,10 @@ public class BallController : MonoBehaviour
             _playerController.GameEndController();
             Destroy(gameObject);
         }
+    }
+
+    public void SetSpeedModifier(float modifier)
+    {
+        _speedModifier = Mathf.Clamp(_speedModifier * modifier, 0.5f, 2f);
     }
 }

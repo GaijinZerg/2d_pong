@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class HardBrickController : Brick, IBrickInterface
 {
-    BrickProperties properties = new(2, 400, 0.2f);
+    BrickProperties properties = new(2, 400);
     public void Action()
     {
         properties.Durability--;
@@ -18,13 +18,22 @@ public class HardBrickController : Brick, IBrickInterface
         if (properties.Durability == 0)
         {
             _ = Instantiate(splashPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
-            if (properties.BonusChance > Random.Range(0f, 1f))
-            {
-                BonusAction(gameObject);
-            }
-            PlayerController.AddScore(properties.Score);
-            GeneralComponent.SceneChanger(PlayerController.GetPlayerData());
-            Destroy(gameObject);
+            _collider2D.isTrigger = true;
+            _rigidbody.constraints = RigidbodyConstraints2D.None;
+            _rigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
+            _rigidbody.gravityScale = 1;
+            _rigidbody.AddForce(new Vector2(0, 3f), ForceMode2D.Impulse);
         }
+    }
+
+    public void Catch()
+    {
+        PlayerController.AddScore(properties.Score);
+        Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        GeneralComponent.SceneChanger(PlayerController.GetPlayerData());
     }
 }

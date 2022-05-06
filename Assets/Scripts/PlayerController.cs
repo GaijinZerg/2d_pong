@@ -6,9 +6,9 @@ using UnityEngine;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private GameObject _ballPrefab, _gameOverMenu, _pauseMenu, _scoresText, _livesText;
+    [SerializeField] private GameObject _ballPrefab, _gameOverMenu, _pauseMenu, _scoresText, _livesText, _ballObject;
     private TextMeshProUGUI _scoresTextMesh, _livesTextMesh;
-    private readonly float _horizontalRestriction = 5.7f;
+    private readonly float _horizontalRestriction = 6f;
     private readonly float _playerSpeed = 50f;
     private float _sensitivity;
     private int _playerScore, _lives;
@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
         _scoresTextMesh.text = _playerScore.ToString();
         _livesTextMesh = _livesText.GetComponent<TextMeshProUGUI>();
         _livesTextMesh.text = _lives.ToString();
+        _ballObject = GameObject.FindGameObjectWithTag("Ball");
     }
 
     public void Move(Vector2 move)
@@ -85,6 +86,10 @@ public class PlayerController : MonoBehaviour
         {
             ProcessBonus(collision.gameObject.GetComponent<IBonusInterface>().ReturnBonusType());
         }
+        if (collision.gameObject.CompareTag("Brick"))
+        {
+            collision.gameObject.GetComponent<IBrickInterface>().Catch();
+        }
     }
 
     private void ProcessBonus(int type)
@@ -97,6 +102,17 @@ public class PlayerController : MonoBehaviour
 
             case 2:
                 this.ChangeLivesCount(1);
+                break;
+
+            case 3:
+                _ballObject.GetComponent<BallController>().SetSpeedModifier(1.2f);
+                break;
+
+            case 4:
+                _ballObject.GetComponent<BallController>().SetSpeedModifier(0.85f);
+                break;
+
+            case 5:
                 break;
 
             default:

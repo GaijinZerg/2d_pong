@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 315627122203472773}
   - component: {fileID: 315627122203472772}
   - component: {fileID: 315627122203472771}
+  - component: {fileID: 5939996251845812057}
   m_Layer: 0
   m_Name: SoftBrick
   m_TagString: Brick
@@ -103,7 +104,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.31, y: 0.35}
+    oldSize: {x: 1.24, y: 1.4}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -126,4 +127,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scoreBonusPrefab: {fileID: 1946879527527632091, guid: 5fc8328a6922fa742b64d7e7e723e67b, type: 3}
   _liveBonusPrefab: {fileID: 2233339974812390750, guid: b2a5a21444c85f54a9c1d6f686e83066, type: 3}
+  _speedUpBonusPrefab: {fileID: 2233339974812390750, guid: 5767f8aaa669e9541b7cd150ec5d4495, type: 3}
+  _slowDownBonusPrefab: {fileID: 2233339974812390750, guid: e688869645ccdd149b49f2074da6a130, type: 3}
   splashPrefab: {fileID: 1619094311959921579, guid: b23ac026b0d335e4eade485ccb6b0698, type: 3}
+--- !u!50 &5939996251845812057
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315627122203472775}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
