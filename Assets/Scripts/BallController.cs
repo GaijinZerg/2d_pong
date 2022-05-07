@@ -39,9 +39,13 @@ public class BallController : MonoBehaviour
         _soundComponent.clip = _soundEffects[0];
         _soundComponent.Play();
         // We need to keep the ball speed constant.
-        // It can be avoided if we do not use Rigidbody but we must use Rigidbody due to the task requirements.
         _bounceDirection = Vector2.Reflect(_lastVelocity.normalized, collision.contacts[0].normal);
         _ballRigidbody.velocity = _bounceDirection * _ballSpeed * _speedModifier;
+        // Avoid near to horizontal bouncing.
+        if (Mathf.Abs(_ballRigidbody.velocity.x) > 5 * Mathf.Abs(_ballRigidbody.velocity.y))
+        {
+            _ballRigidbody.velocity = new Vector2(_ballRigidbody.velocity.x * 0.8f, _ballRigidbody.velocity.y * 1.5f);
+        }
         if (collision.gameObject.GetComponent<IBrickInterface>() != null)
         {
             collision.gameObject.GetComponent<IBrickInterface>().Action();

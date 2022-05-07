@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// Specifies live bonus properties.
 /// </summary>
-public class LiveBonus : MonoBehaviour, IBonusInterface
+public class LifeBonus : MonoBehaviour, IBonusInterface
 {
     private readonly int _bonusType = 2;
 

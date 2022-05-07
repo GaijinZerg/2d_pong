@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class Brick : MonoBehaviour
 {
-    [SerializeField] private GameObject _scoreBonusPrefab, _liveBonusPrefab, _speedUpBonusPrefab, _slowDownBonusPrefab;
+    [SerializeField] private GameObject _scoreBonusPrefab, _liveBonusPrefab, _speedUpBonusPrefab, _slowDownBonusPrefab, _characterBonusPrefab;
     [SerializeField] protected GameObject splashPrefab;
     protected GameObject Player, GeneralObject;
     protected General GeneralComponent;
@@ -50,7 +50,7 @@ public class Brick : MonoBehaviour
         }
         else
         {
-
+            _ = Instantiate(_characterBonusPrefab, generator.transform.position, Quaternion.Euler(0, 0, 0));
         }
     }
 }

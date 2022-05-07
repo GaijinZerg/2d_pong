@@ -112,8 +112,20 @@ public class PlayerController : MonoBehaviour
             case 4:
                 _ballObject.GetComponent<BallController>().SetSpeedModifier(0.85f);
                 break;
-
+            
+            // Cases 5-10 are the same but only the character is different.
+            // ToDo: add character catching.
             case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+            case 8:
+                break;
+            case 9:
+                break;
+            case 10:
                 break;
 
             default:
