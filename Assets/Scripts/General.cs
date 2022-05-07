@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,8 +6,10 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class General : MonoBehaviour
 {
-    [SerializeField] private GameObject _finishMenu, _nextLevelMenu, _scoreText, _player, _pauseMenu;
+    [SerializeField] private GameObject _finishMenu, _nextLevelMenu, _player, _pauseMenu;
+    [SerializeField] private GameObject[] _levelsData;
     private PlayerController _playerController;
+    private int _currentLevel = 0;
 
     void Start()
     {
@@ -18,19 +19,17 @@ public class General : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             PlayerPrefs.DeleteKey("Score");
-            PlayerPrefs.DeleteKey("Lives");
         }
     }
 
     public static void StartGame()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Level");
     }
 
     public static void ExitGame()
     {
         PlayerPrefs.DeleteKey("Score");
-        PlayerPrefs.DeleteKey("Lives");
         Application.Quit();
     }
 
@@ -47,7 +46,6 @@ public class General : MonoBehaviour
     public static void ReturnToMenu()
     {
         PlayerPrefs.DeleteKey("Score");
-        PlayerPrefs.DeleteKey("Lives");
         if (GameObject.FindGameObjectWithTag("Music") != null) 
             GameObject.FindGameObjectWithTag("Music").GetComponent<MusicController>().StopMusic();
         SceneManager.LoadScene("MainMenu");
@@ -60,24 +58,34 @@ public class General : MonoBehaviour
         _pauseMenu.SetActive(false);
     }
 
-    public static void StartNextLevel()
+    public void StartNextLevel()
     {
-        Time.timeScale = 1;
-        Cursor.visible = false;
-        SceneManager.LoadScene("Level2");
+        if (_currentLevel == (_levelsData.Length - 1))
+        {
+            // ToDo: game end here.
+        }
+        else
+        {
+            Time.timeScale = 1;
+            Cursor.visible = false;
+            _nextLevelMenu.SetActive(false);
+            _playerController.GameEndController();
+            _levelsData[_currentLevel].SetActive(false);
+            _levelsData[_currentLevel + 1].SetActive(true);
+            _currentLevel++;
+        }
     }
 
-    public void SceneChanger(int[] data)
+    public void SceneChanger()
     {
-        if (GameObject.FindGameObjectsWithTag("Brick").Length == 1)
+        if (GameObject.FindGameObjectsWithTag("Brick").Length == 0)
         {
-            if (SceneManager.GetActiveScene().name == "Level1")
+            if (SceneManager.GetActiveScene().name == "Level")
             {
-                PlayerPrefs.SetInt("Score", data[0]);
-                PlayerPrefs.SetInt("Lives", data[1]);
                 Time.timeScale = 0;
                 Cursor.visible = true;
                 _nextLevelMenu.SetActive(true);
+                Destroy(GameObject.FindGameObjectWithTag("Ball"));
             }
             else
             {
@@ -85,7 +93,6 @@ public class General : MonoBehaviour
                 _playerController.gameOverFlag = true;
                 Cursor.visible = true;
                 _finishMenu.SetActive(true);
-                _scoreText.GetComponent<TextMeshProUGUI>().text = data[0].ToString();
             }
         }
     }

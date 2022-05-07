@@ -12,6 +12,7 @@ public class BallController : MonoBehaviour
     private Rigidbody2D _ballRigidbody;
     private float _ballSpeed = 5, _speedModifier = 1f, _timer = 0f, _speedUpTime = 30f;
     private Vector2 _bounceDirection, _lastVelocity;
+    private bool _isPushed = false;
 
     private void Start()
     {
@@ -19,13 +20,17 @@ public class BallController : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerController = _player.GetComponent<PlayerController>();
         _ballRigidbody = gameObject.GetComponent<Rigidbody2D>();
-        // Start pulse.
-        _ballRigidbody.AddForce(new Vector2(100f, -100f), ForceMode2D.Force);
     }
 
     private void Update()
     {
         _timer += Time.deltaTime;
+        if ((_timer > 1) && !_isPushed)
+        {
+            // Start pulse.
+            _ballRigidbody.AddForce(new Vector2(100f, -100f), ForceMode2D.Force);
+            _isPushed = true;
+        }
         if (_timer > _speedUpTime)
         {
             _speedModifier = Mathf.Clamp(_speedModifier * 1.1f, 0.5f, 2f); ;

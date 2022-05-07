@@ -111,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &315627122203472771
 MonoBehaviour:
@@ -129,6 +129,7 @@ MonoBehaviour:
   _liveBonusPrefab: {fileID: 2233339974812390750, guid: b2a5a21444c85f54a9c1d6f686e83066, type: 3}
   _speedUpBonusPrefab: {fileID: 2233339974812390750, guid: 5767f8aaa669e9541b7cd150ec5d4495, type: 3}
   _slowDownBonusPrefab: {fileID: 2233339974812390750, guid: e688869645ccdd149b49f2074da6a130, type: 3}
+  _characterBonusPrefab: {fileID: 0}
   splashPrefab: {fileID: 1619094311959921579, guid: b23ac026b0d335e4eade485ccb6b0698, type: 3}
 --- !u!50 &5939996251845812057
 Rigidbody2D:

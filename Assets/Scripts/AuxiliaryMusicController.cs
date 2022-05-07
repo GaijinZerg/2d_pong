@@ -8,6 +8,7 @@ public class AuxiliaryMusicController : MonoBehaviour
 {
     private void Start()
     {
+        // ToDo: redo considering new scene structure.
         if (GameObject.FindGameObjectWithTag("Music") != null)
         {
             if (SceneManager.GetActiveScene().name != "MainMenu")

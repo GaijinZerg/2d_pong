@@ -2433,8 +2433,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _finishMenu: {fileID: 1172926891}
   _nextLevelMenu: {fileID: 1172926891}
-  _scoreText: {fileID: 1172926891}
   _player: {fileID: 1172926891}
+  _pauseMenu: {fileID: 1172926891}
+  _ball: {fileID: 1172926891}
+  _levelsData: []
 --- !u!4 &1718477161
 Transform:
   m_ObjectHideFlags: 0

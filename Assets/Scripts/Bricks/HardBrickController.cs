@@ -34,6 +34,14 @@ public class HardBrickController : Brick, IBrickInterface
 
     private void OnDestroy()
     {
-        GeneralComponent.SceneChanger(PlayerController.GetPlayerData());
+        GeneralComponent.SceneChanger();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("LowerTrigger"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

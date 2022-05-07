@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private readonly float _horizontalRestriction = 6.5f;
     private readonly float _playerSpeed = 50f;
     private float _sensitivity;
-    private int _playerScore, _lives;
+    private int _playerScore, _lives = 3;
     private bool _gameOverFlag = false;
 
     public bool gameOverFlag
@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
     {
         _sensitivity = PlayerPrefs.HasKey("Sensitivity") ? PlayerPrefs.GetFloat("Sensitivity") : 1;
         _playerScore = PlayerPrefs.HasKey("Score") ? PlayerPrefs.GetInt("Score") : 0;
-        _lives = PlayerPrefs.HasKey("Lives") ? PlayerPrefs.GetInt("Lives") : 3;
         Cursor.visible = false;
         _gameOverMenu.SetActive(false);
         _pauseMenu.SetActive(false);
@@ -54,9 +53,9 @@ public class PlayerController : MonoBehaviour
         _scoresTextMesh.text = _playerScore.ToString();
     }
 
-    public int[] GetPlayerData()
+    public int GetPlayerData()
     {
-        return new int[] { _playerScore, _lives };
+        return _playerScore;
     }
 
     public void ChangeLivesCount(int count)
