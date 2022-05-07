@@ -60,12 +60,6 @@ public class General : MonoBehaviour
         _pauseMenu.SetActive(false);
     }
 
-    public static void ReloadLevel()
-    {
-        PlayerPrefs.SetInt("Lives", 3);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
     public static void StartNextLevel()
     {
         Time.timeScale = 1;

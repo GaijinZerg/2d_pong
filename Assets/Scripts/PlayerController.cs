@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private GameObject _ballPrefab, _gameOverMenu, _pauseMenu, _scoresText, _livesText, _ballObject;
     private TextMeshProUGUI _scoresTextMesh, _livesTextMesh;
-    private readonly float _horizontalRestriction = 6f;
+    private readonly float _horizontalRestriction = 6.5f;
     private readonly float _playerSpeed = 50f;
     private float _sensitivity;
     private int _playerScore, _lives;
