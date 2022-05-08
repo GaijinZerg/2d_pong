@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,7 +7,7 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class General : MonoBehaviour
 {
-    [SerializeField] private GameObject _finishMenu, _nextLevelMenu, _player, _pauseMenu, _gameEndMenu;
+    [SerializeField] private GameObject _finishMenu, _nextLevelMenu, _player, _pauseMenu, _gameEndMenu, _nameInputMenu, _gameScoresMenu, _mainMenu, _highScoresMenu;
     [SerializeField] private GameObject[] _levelsData;
     private PlayerController _playerController;
     private int _currentLevel = 0;
@@ -19,10 +20,42 @@ public class General : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             PlayerPrefs.DeleteKey("Score");
+            if (PlayerPrefs.HasKey("SceneMode"))
+            {
+                if (PlayerPrefs.GetInt("SceneMode") == 1)
+                {
+                    _mainMenu.SetActive(false);
+                    _highScoresMenu.SetActive(true);
+                    PlayerPrefs.SetInt("SceneMode", 0);
+                }
+            }
         }
         if (SceneManager.GetActiveScene().name != "Level")
         {
             Cursor.visible = true;
+        }
+        if (SceneManager.GetActiveScene().name == "GameEnd")
+        {
+            List<string> scoresList = CSVManager.ReadCSV();
+
+            List<int> scoresSort = new List<int>();
+            for (int i = 1; i < scoresList.Count; i++)
+            {
+                scoresSort.Add(int.Parse(scoresList[i].Split(";")[1]));
+            }
+            scoresSort.Sort();
+            scoresSort.Reverse();
+
+            if (PlayerPrefs.GetInt("Score") > scoresSort[4])
+            {
+                _nameInputMenu.SetActive(true);
+                _gameScoresMenu.SetActive(false);
+            }
+            else
+            {
+                _nameInputMenu.SetActive(false);
+                _gameScoresMenu.SetActive(true);
+            }
         }
     }
 
@@ -47,8 +80,9 @@ public class General : MonoBehaviour
         }
     }
 
-    public static void ReturnToMenu()
+    public static void ReturnToMenu(int mode)
     {
+        PlayerPrefs.SetInt("SceneMode", mode);
         PlayerPrefs.DeleteKey("Score");
         if (GameObject.FindGameObjectWithTag("Music") != null) 
             GameObject.FindGameObjectWithTag("Music").GetComponent<MusicController>().StopMusic();

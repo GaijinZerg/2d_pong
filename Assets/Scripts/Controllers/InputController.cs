@@ -31,7 +31,7 @@ public class InputController : MonoBehaviour
     {
         _masterInput.Enable();
         // ToDo: consider another scenes like Game End and High Scores.
-        if (SceneManager.GetActiveScene().name == "MainMenu")
+        if (SceneManager.GetActiveScene().name != "Level")
         {
             _masterInput.UI.Enable();
             _masterInput.Player.Disable();

@@ -1283,6 +1283,10 @@ MonoBehaviour:
   _player: {fileID: 288091782}
   _pauseMenu: {fileID: 1773526476}
   _gameEndMenu: {fileID: 980258566}
+  _nameInputMenu: {fileID: 1161296852}
+  _gameScoresMenu: {fileID: 1161296852}
+  _mainMenu: {fileID: 1161296852}
+  _highScoresMenu: {fileID: 1161296852}
   _levelsData:
   - {fileID: 269464553}
   - {fileID: 217938636}
@@ -3759,7 +3763,7 @@ MonoBehaviour:
       - m_Target: {fileID: 291817653}
         m_TargetAssemblyTypeName: General, Assembly-CSharp
         m_MethodName: ReturnToMenu
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3956,7 +3960,7 @@ MonoBehaviour:
       - m_Target: {fileID: 291817653}
         m_TargetAssemblyTypeName: General, Assembly-CSharp
         m_MethodName: ReturnToMenu
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -56,12 +56,8 @@ public class PlayerController : MonoBehaviour
     public void AddScore(int add)
     {
         _playerScore += add;
+        PlayerPrefs.SetInt("Score", _playerScore);
         _scoresTextMesh.text = _playerScore.ToString();
-    }
-
-    public int GetPlayerData()
-    {
-        return _playerScore;
     }
 
     public void ChangeLivesCount(int count)
