@@ -20,6 +20,7 @@ public class BallController : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerController = _player.GetComponent<PlayerController>();
         _ballRigidbody = gameObject.GetComponent<Rigidbody2D>();
+        _playerController.ResetBall();
     }
 
     private void Update()

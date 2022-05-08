@@ -6,7 +6,8 @@ using UnityEngine;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private GameObject _ballPrefab, _gameOverMenu, _pauseMenu, _scoresText, _livesText, _ballObject;
+    [SerializeField] private GameObject _ballPrefab, _gameOverMenu, _pauseMenu, _scoresText, _livesText;
+    private GameObject _ballObject;
     private TextMeshProUGUI _scoresTextMesh, _livesTextMesh;
     private readonly float _horizontalRestriction = 6.5f;
     private readonly float _playerSpeed = 50f;
@@ -31,6 +32,11 @@ public class PlayerController : MonoBehaviour
         _scoresTextMesh.text = _playerScore.ToString();
         _livesTextMesh = _livesText.GetComponent<TextMeshProUGUI>();
         _livesTextMesh.text = _lives.ToString();
+        _ballObject = GameObject.FindGameObjectWithTag("Ball");
+    }
+
+    public void ResetBall()
+    {
         _ballObject = GameObject.FindGameObjectWithTag("Ball");
     }
 

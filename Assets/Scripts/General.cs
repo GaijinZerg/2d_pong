@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class General : MonoBehaviour
 {
-    [SerializeField] private GameObject _finishMenu, _nextLevelMenu, _player, _pauseMenu;
+    [SerializeField] private GameObject _finishMenu, _nextLevelMenu, _player, _pauseMenu, _gameEndMenu;
     [SerializeField] private GameObject[] _levelsData;
     private PlayerController _playerController;
     private int _currentLevel = 0;
@@ -19,6 +19,10 @@ public class General : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             PlayerPrefs.DeleteKey("Score");
+        }
+        if (SceneManager.GetActiveScene().name != "Level")
+        {
+            Cursor.visible = true;
         }
     }
 
@@ -62,7 +66,7 @@ public class General : MonoBehaviour
     {
         if (_currentLevel == (_levelsData.Length - 1))
         {
-            // ToDo: game end here.
+            _gameEndMenu.SetActive(true);
         }
         else
         {
@@ -76,6 +80,11 @@ public class General : MonoBehaviour
         }
     }
 
+    public void GameEnd()
+    {
+        SceneManager.LoadScene("GameEnd");
+    }
+
     public void SceneChanger()
     {
         if (GameObject.FindGameObjectsWithTag("Brick").Length == 0)
@@ -84,8 +93,15 @@ public class General : MonoBehaviour
             {
                 Time.timeScale = 0;
                 Cursor.visible = true;
-                _nextLevelMenu.SetActive(true);
                 Destroy(GameObject.FindGameObjectWithTag("Ball"));
+                if (_currentLevel != (_levelsData.Length - 1))
+                {
+                    _nextLevelMenu.SetActive(true);
+                }
+                else
+                {
+                    _gameEndMenu.SetActive(true);
+                }
             }
             else
             {
