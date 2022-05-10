@@ -6,7 +6,8 @@ using UnityEngine;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private GameObject _ballPrefab, _gameOverMenu, _pauseMenu, _scoresText, _livesText;
+    [SerializeField] private GameObject _ballPrefab, _gameOverMenu, _pauseMenu, _scoresText, _livesText, _general;
+    private ValeraManager _manager;
     private GameObject _ballObject;
     private TextMeshProUGUI _scoresTextMesh, _livesTextMesh;
     private readonly float _horizontalRestriction = 6.5f;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
         _livesTextMesh = _livesText.GetComponent<TextMeshProUGUI>();
         _livesTextMesh.text = _lives.ToString();
         _ballObject = GameObject.FindGameObjectWithTag("Ball");
+        _manager = _general.GetComponent<ValeraManager>();
     }
 
     public void ResetBall()
@@ -117,16 +119,22 @@ public class PlayerController : MonoBehaviour
             // Cases 5-10 are the same but only the character is different.
             // ToDo: add character catching.
             case 5:
+                _manager.ActivateCharacter(0);
                 break;
             case 6:
+                _manager.ActivateCharacter(1);
                 break;
             case 7:
+                _manager.ActivateCharacter(2);
                 break;
             case 8:
+                _manager.ActivateCharacter(3);
                 break;
             case 9:
+                _manager.ActivateCharacter(4);
                 break;
             case 10:
+                _manager.ActivateCharacter(5);
                 break;
 
             default:

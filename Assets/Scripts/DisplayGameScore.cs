@@ -5,7 +5,7 @@ public class DisplayGameScore : MonoBehaviour
 {
     [SerializeField] private GameObject playerScore;
 
-    public void DisplayPlayerScore()
+    private void Start()
     {
         playerScore.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt("Score").ToString();
     }

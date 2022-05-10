@@ -5,6 +5,8 @@ using UnityEngine;
 /// </summary>
 public class BonusBrickController : Brick, IBrickInterface
 {
+    [SerializeField] private GameObject _scoreBonusPrefab, _liveBonusPrefab, _speedUpBonusPrefab, _slowDownBonusPrefab, _characterBonusPrefab;
+
     BrickProperties properties = new(1, 100);
     public void Action()
     {
@@ -32,6 +34,37 @@ public class BonusBrickController : Brick, IBrickInterface
         if (collision.gameObject.CompareTag("LowerTrigger"))
         {
             Destroy(gameObject);
+        }
+    }
+
+    // There are several types of bonuses.
+    // extra life - 5%
+    // score - 65%
+    // slow down - 10%
+    // speed up - 10%
+    // character - 10%
+    private void BonusAction(GameObject generator)
+    {
+        float x = Random.Range(0f, 1f);
+        if (x < 0.05f)
+        {
+            _ = Instantiate(_liveBonusPrefab, generator.transform.position, Quaternion.Euler(0, 0, 0));
+        }
+        else if ((x >= 0.05f) && (x < 0.7f))
+        {
+            _ = Instantiate(_scoreBonusPrefab, generator.transform.position, Quaternion.Euler(0, 0, 0));
+        }
+        else if ((x >= 0.7f) && (x < 0.8f))
+        {
+            _ = Instantiate(_speedUpBonusPrefab, generator.transform.position, Quaternion.Euler(0, 0, 0));
+        }
+        else if ((x >= 0.8f) && (x < 0.9f))
+        {
+            _ = Instantiate(_slowDownBonusPrefab, generator.transform.position, Quaternion.Euler(0, 0, 0));
+        }
+        else
+        {
+            _ = Instantiate(_characterBonusPrefab, generator.transform.position, Quaternion.Euler(0, 0, 0));
         }
     }
 }

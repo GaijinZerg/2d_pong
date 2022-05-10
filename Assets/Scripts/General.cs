@@ -11,6 +11,7 @@ public class General : MonoBehaviour
     [SerializeField] private GameObject[] _levelsData;
     private PlayerController _playerController;
     private int _currentLevel = 0;
+    private bool _isSecretLevel = false;
 
     void Start()
     {
@@ -98,6 +99,7 @@ public class General : MonoBehaviour
 
     public void StartNextLevel()
     {
+        // ToDo: add announce for the secret level.
         if (_currentLevel == (_levelsData.Length - 1))
         {
             _gameEndMenu.SetActive(true);
@@ -128,7 +130,7 @@ public class General : MonoBehaviour
                 Time.timeScale = 0;
                 Cursor.visible = true;
                 Destroy(GameObject.FindGameObjectWithTag("Ball"));
-                if (_currentLevel != (_levelsData.Length - 1))
+                if ((_currentLevel == (_levelsData.Length - 2)) && _isSecretLevel)
                 {
                     _nextLevelMenu.SetActive(true);
                 }
@@ -145,5 +147,10 @@ public class General : MonoBehaviour
                 _finishMenu.SetActive(true);
             }
         }
+    }
+
+    public void SetSecretLevel()
+    {
+        _isSecretLevel = true;
     }
 }
