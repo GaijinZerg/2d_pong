@@ -5,7 +5,41 @@ using UnityEngine;
 /// </summary>
 public class SoftBrickController : Brick, IBrickInterface
 {
+    [SerializeField] private int blockType;
+    [SerializeField] private Sprite[] sprites;
     BrickProperties properties = new(1, 100);
+
+    private void Awake()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = sprites[blockType];
+        int score = 100;
+        switch (blockType)
+        {
+            case 0:
+                score = 100;
+                break;
+            case 1:
+                score = 150;
+                break;
+            case 2:
+                score = 200;
+                break;
+            case 3:
+                score = 300;
+                break;
+            case 4:
+                score = 400;
+                break;
+            case 5:
+                score = 500;
+                break;
+            case 6:
+                score = 600;
+                break;
+        }
+        properties = new(1, score);
+    }
+
     public void Action()
     {
         properties.Durability--;

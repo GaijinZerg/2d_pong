@@ -5,18 +5,24 @@ using UnityEngine;
 /// </summary>
 public class HardBrickController : Brick, IBrickInterface
 {
+    [SerializeField] private Sprite[] sprites;
     BrickProperties properties = new(2, 400);
+
+    private void Awake()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = sprites[0];
+    }
+
     public void Action()
     {
         properties.Durability--;
         if (properties.Durability == 1)
         {
-            // We change only transparency of the sprite here.
-            // We can directly input the numbers of RGB but the code below can be used in any set of RGB.
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(gameObject.GetComponent<SpriteRenderer>().color.r, gameObject.GetComponent<SpriteRenderer>().color.g, gameObject.GetComponent<SpriteRenderer>().color.b, 0.7f);
+            gameObject.GetComponent<SpriteRenderer>().sprite = sprites[1];
         }
         if (properties.Durability == 0)
         {
+            gameObject.GetComponent<SpriteRenderer>().sprite = sprites[2];
             _ = Instantiate(splashPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
             _collider2D.isTrigger = true;
             _rigidbody.constraints = RigidbodyConstraints2D.None;

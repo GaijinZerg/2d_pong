@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 315627122203472770}
   - component: {fileID: 315627122203472773}
   - component: {fileID: 315627122203472772}
-  - component: {fileID: -139548329585821643}
   - component: {fileID: 654179262763033646}
   m_Layer: 0
-  m_Name: HardBrick
-  m_TagString: Brick
+  m_Name: StoneBrick
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 0d1da3a7f2b2edd4d8d49c09a5a291e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 936fda2499dd7b0439d23934a18836ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -113,23 +112,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-139548329585821643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315627122203472775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b05804ee6292cce4fb09babe8ace75e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  splashPrefab: {fileID: 1619094311959921579, guid: b23ac026b0d335e4eade485ccb6b0698, type: 3}
-  sprites:
-  - {fileID: 21300000, guid: 0d1da3a7f2b2edd4d8d49c09a5a291e8, type: 3}
-  - {fileID: 21300000, guid: feb3d0113e40d2a4cac560d0e12a6c27, type: 3}
-  - {fileID: 21300000, guid: adf6987297c4d6b45b02eeb8dfb42aad, type: 3}
 --- !u!50 &654179262763033646
 Rigidbody2D:
   serializedVersion: 4

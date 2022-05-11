@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: dafde4414dba69e4382178936564ff19, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c8f5e023819d9114da65ffcda62a037d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,7 +104,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.24, y: 1.4}
+    oldSize: {x: 0.96, y: 1.2}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -125,12 +125,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aeb4a860db476b4cb3fa56667cbd934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scoreBonusPrefab: {fileID: 1946879527527632091, guid: 5fc8328a6922fa742b64d7e7e723e67b, type: 3}
-  _liveBonusPrefab: {fileID: 2233339974812390750, guid: b2a5a21444c85f54a9c1d6f686e83066, type: 3}
-  _speedUpBonusPrefab: {fileID: 2233339974812390750, guid: 5767f8aaa669e9541b7cd150ec5d4495, type: 3}
-  _slowDownBonusPrefab: {fileID: 2233339974812390750, guid: e688869645ccdd149b49f2074da6a130, type: 3}
-  _characterBonusPrefab: {fileID: 0}
   splashPrefab: {fileID: 1619094311959921579, guid: b23ac026b0d335e4eade485ccb6b0698, type: 3}
+  blockType: 0
+  sprites:
+  - {fileID: 21300000, guid: c8f5e023819d9114da65ffcda62a037d, type: 3}
+  - {fileID: 21300000, guid: aca0f5e6d090c5a41ac26d5150747286, type: 3}
+  - {fileID: 21300000, guid: f8530415e0cff414184dc228661a19cb, type: 3}
+  - {fileID: 21300000, guid: e01c92a59784c0b49934962c012c6bfd, type: 3}
+  - {fileID: 21300000, guid: 6d06ac4ae72447848acc1a5da4ca351c, type: 3}
+  - {fileID: 21300000, guid: 4cc4f011626dc684ea70a5bd881e8ca2, type: 3}
+  - {fileID: 21300000, guid: d8d35afade55a91489df23e15a20e01a, type: 3}
 --- !u!50 &5939996251845812057
 Rigidbody2D:
   serializedVersion: 4
