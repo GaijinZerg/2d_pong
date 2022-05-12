@@ -10,7 +10,7 @@ public class BallController : MonoBehaviour
     private GameObject _player;
     private PlayerController _playerController;
     private Rigidbody2D _ballRigidbody;
-    private float _ballSpeed = 5, _speedModifier = 1f, _timer = 0f, _speedUpTime = 30f;
+    private float _ballSpeed = 5f, _speedModifier = 1f, _timer = 0f, _speedUpTime = 30f;
     private Vector2 _bounceDirection, _lastVelocity;
     private bool _isPushed = false;
 
@@ -37,6 +37,7 @@ public class BallController : MonoBehaviour
             _speedModifier = Mathf.Clamp(_speedModifier * 1.1f, 0.5f, 2f); ;
             _timer = 0f;
         }
+        MoveCorrector();
         _lastVelocity = _ballRigidbody.velocity;
     }
 
@@ -47,11 +48,6 @@ public class BallController : MonoBehaviour
         // We need to keep the ball speed constant.
         _bounceDirection = Vector2.Reflect(_lastVelocity.normalized, collision.contacts[0].normal);
         _ballRigidbody.velocity = _bounceDirection * _ballSpeed * _speedModifier;
-        // Avoid near to horizontal bouncing.
-        if (Mathf.Abs(_ballRigidbody.velocity.x) > 5 * Mathf.Abs(_ballRigidbody.velocity.y))
-        {
-            _ballRigidbody.velocity = new Vector2(_ballRigidbody.velocity.x * 0.8f, _ballRigidbody.velocity.y * 1.5f);
-        }
         if (collision.gameObject.GetComponent<IBrickInterface>() != null)
         {
             collision.gameObject.GetComponent<IBrickInterface>().Action();
@@ -73,5 +69,23 @@ public class BallController : MonoBehaviour
     public void SetSpeedModifier(float modifier)
     {
         _speedModifier = Mathf.Clamp(_speedModifier * modifier, 0.5f, 2f);
+    }
+
+    // Avoids near to horizontal bouncing and normilizes speed.
+    private void MoveCorrector()
+    {
+        if (_ballRigidbody.velocity.magnitude < 0.95f * _ballSpeed * _speedModifier)
+        {
+            float corrector = Mathf.Clamp(_ballSpeed * _speedModifier / _ballRigidbody.velocity.magnitude, 0f, 100f);
+            _ballRigidbody.velocity = new Vector2(_ballRigidbody.velocity.x * corrector, _ballRigidbody.velocity.y * corrector);
+        }
+        if (Mathf.Abs(_ballRigidbody.velocity.x / _ballRigidbody.velocity.y) > 4)
+        {
+            _ballRigidbody.velocity = new Vector2(Mathf.Sign(_ballRigidbody.velocity.x) * _ballRigidbody.velocity.magnitude * 0.74f, Mathf.Sign(_ballRigidbody.velocity.y) * _ballRigidbody.velocity.magnitude * 0.25f);
+        }
+        if (Mathf.Abs(_ballRigidbody.velocity.y / _ballRigidbody.velocity.x) > 4)
+        {
+            _ballRigidbody.velocity = new Vector2(Mathf.Sign(_ballRigidbody.velocity.x) * _ballRigidbody.velocity.magnitude * 0.25f, Mathf.Sign(_ballRigidbody.velocity.y) * _ballRigidbody.velocity.magnitude * 0.74f);
+        }
     }
 }
