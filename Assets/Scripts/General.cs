@@ -130,7 +130,11 @@ public class General : MonoBehaviour
                 Time.timeScale = 0;
                 Cursor.visible = true;
                 Destroy(GameObject.FindGameObjectWithTag("Ball"));
-                if ((_currentLevel == (_levelsData.Length - 2)) && _isSecretLevel)
+                if (_currentLevel < (_levelsData.Length - 2))
+                {
+                    _nextLevelMenu.SetActive(true);
+                }
+                else if ((_currentLevel == (_levelsData.Length - 2)) && _isSecretLevel)
                 {
                     _nextLevelMenu.SetActive(true);
                 }
