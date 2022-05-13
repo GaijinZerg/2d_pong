@@ -5,22 +5,9 @@ using UnityEngine;
 /// </summary>
 public class MusicController : MonoBehaviour
 {
-    private AudioSource _audioSource;
-
-    private void Awake()
+    private void Start()
     {
-        DontDestroyOnLoad(gameObject);
-        _audioSource = gameObject.GetComponent<AudioSource>();
-    }
-
-    public void PlayMusic()
-    {
-        if (_audioSource.isPlaying) return;
-        _audioSource.Play();
-    }
-
-    public void StopMusic()
-    {
-        _audioSource.Stop();
+        gameObject.GetComponent<AudioSource>().Play();
+        gameObject.GetComponent<AudioSource>().volume = PlayerPrefs.HasKey("Music") ? PlayerPrefs.GetFloat("Music") : 1;
     }
 }

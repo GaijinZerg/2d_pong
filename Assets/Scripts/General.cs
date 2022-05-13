@@ -85,8 +85,6 @@ public class General : MonoBehaviour
     {
         PlayerPrefs.SetInt("SceneMode", mode);
         PlayerPrefs.DeleteKey("Score");
-        if (GameObject.FindGameObjectWithTag("Music") != null) 
-            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicController>().StopMusic();
         SceneManager.LoadScene("MainMenu");
     }
 

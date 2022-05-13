@@ -44,6 +44,7 @@ public class BallController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         _soundComponent.clip = _soundEffects[0];
+        _soundComponent.volume = PlayerPrefs.HasKey("Sound") ? PlayerPrefs.GetFloat("Sound") : 1;
         _soundComponent.Play();
         // We need to keep the ball speed constant.
         _bounceDirection = Vector2.Reflect(_lastVelocity.normalized, collision.contacts[0].normal);
@@ -59,7 +60,7 @@ public class BallController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("LowerTrigger"))
         {
-            AudioSource.PlayClipAtPoint(_soundEffects[1], gameObject.transform.position);
+            AudioSource.PlayClipAtPoint(_soundEffects[1], gameObject.transform.position, PlayerPrefs.HasKey("Sound") ? PlayerPrefs.GetFloat("Sound") : 1);
             _playerController.ChangeLivesCount(-1);
             _playerController.GameEndController();
             Destroy(gameObject);

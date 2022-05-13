@@ -4,7 +4,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Allows to adjust mouse sensitivity.
 /// </summary>
-public class SensitivityController : MonoBehaviour
+public class SensitivitySlider : MonoBehaviour
 {
     private Slider _slider;
 
