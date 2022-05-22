@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 0d1da3a7f2b2edd4d8d49c09a5a291e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 117ed156b83f5e04a96a51fd1d38d99e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,7 +104,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.04, y: 1.04}
+    oldSize: {x: 1.04, y: 0.96}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -127,9 +127,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splashPrefab: {fileID: 1619094311959921579, guid: b23ac026b0d335e4eade485ccb6b0698, type: 3}
   sprites:
-  - {fileID: 21300000, guid: 0d1da3a7f2b2edd4d8d49c09a5a291e8, type: 3}
-  - {fileID: 21300000, guid: feb3d0113e40d2a4cac560d0e12a6c27, type: 3}
-  - {fileID: 21300000, guid: adf6987297c4d6b45b02eeb8dfb42aad, type: 3}
+  - {fileID: 21300000, guid: 117ed156b83f5e04a96a51fd1d38d99e, type: 3}
+  - {fileID: 21300000, guid: e1bfbb23e9e985743845c01028e49704, type: 3}
+  - {fileID: 21300000, guid: 4a355a9b37a134d47a9dac57cfce2ba4, type: 3}
 --- !u!50 &654179262763033646
 Rigidbody2D:
   serializedVersion: 4
