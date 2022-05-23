@@ -83,7 +83,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5646634291120784082
@@ -103,6 +103,8 @@ MonoBehaviour:
   _pauseMenu: {fileID: 0}
   _scoresText: {fileID: 0}
   _livesText: {fileID: 0}
+  _general: {fileID: 0}
+  _checker: {fileID: 0}
 --- !u!70 &2449864370478204595
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

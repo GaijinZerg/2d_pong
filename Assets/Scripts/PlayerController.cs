@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private float _sensitivity;
     private int _playerScore, _lives = 3;
     private bool _gameOverFlag = false;
+    private float _restriction = 0;
 
     public bool gameOverFlag
     {
@@ -42,16 +43,13 @@ public class PlayerController : MonoBehaviour
         _ballObject = GameObject.FindGameObjectWithTag("Ball");
     }
 
-    public void Move(Vector2 move)
+    public void Move(float move)
     {
-        // Restrict horizontal movement of the player.
-        if (Mathf.Abs(gameObject.transform.position.x) <= _horizontalRestriction)
+        // This restriction is necessary to avoid shattering when collapsing with colliders.
+        _restriction = gameObject.transform.position.x + move * _playerSpeed * _sensitivity * Time.deltaTime;
+        if (Mathf.Abs(_restriction) < _horizontalRestriction)
         {
-            gameObject.transform.position = gameObject.transform.position + new Vector3(move.x * _playerSpeed * _sensitivity * Time.deltaTime, 0, 0);
-        }
-        else
-        {
-            gameObject.transform.position = new Vector2(_horizontalRestriction * Mathf.Sign(gameObject.transform.position.x), gameObject.transform.position.y);
+            gameObject.transform.position = gameObject.transform.position + new Vector3(move * _playerSpeed * _sensitivity * Time.deltaTime, 0, 0);
         }
     }
 

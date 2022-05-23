@@ -50,17 +50,17 @@ public class InputController : MonoBehaviour
 
     private void Update()
     {
-        if (_masterInput.Player.Move.ReadValue<Vector2>().magnitude > 0.05f)
+        if (Mathf.Abs(_masterInput.Player.Move.ReadValue<float>()) > 0.05f)
         {
-            PlayerMove(_masterInput.Player.Move.ReadValue<Vector2>());
+            PlayerMove(_masterInput.Player.Move.ReadValue<float>());
         }
         else
         {
-            PlayerMove(new Vector2(0, 0));
+            PlayerMove(0);
         }
     }
 
-    private void PlayerMove(Vector2 move)
+    private void PlayerMove(float move)
     {
         _player.Move(move);
     }

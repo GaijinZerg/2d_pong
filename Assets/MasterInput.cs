@@ -29,12 +29,12 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""fec6549c-e3a5-44ff-9f6a-fae58c2ee3b1"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Analog"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Action"",
@@ -59,7 +59,7 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""2ffeca3f-cfa7-4c9b-bfa6-f27c9542709f"",
-                    ""path"": ""<Mouse>/delta"",
+                    ""path"": ""<Mouse>/delta/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
