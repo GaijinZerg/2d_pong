@@ -577,7 +577,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 1.35
+  orthographic size: 5.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -621,7 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
-  m_AssetsPPU: 100
+  m_AssetsPPU: 25
   m_RefResolutionX: 480
   m_RefResolutionY: 270
   m_CropFrame: 0
@@ -1179,8 +1179,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a666897f83af2c34388aadb42cbaa57b, type: 3}
-  m_Color: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 0a4c2aad7932c6649a35f15834d6a6e7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2222,7 +2222,9 @@ MonoBehaviour:
   _gameScoresMenu: {fileID: 387185023}
   _mainMenu: {fileID: 1172926891}
   _highScoresMenu: {fileID: 1172926891}
+  _background: {fileID: 1172926891}
   _levelsData: []
+  _sprites: []
 --- !u!4 &1718477161
 Transform:
   m_ObjectHideFlags: 0

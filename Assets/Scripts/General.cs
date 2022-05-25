@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class General : MonoBehaviour
 {
-    [SerializeField] private GameObject _finishMenu, _nextLevelMenu, _player, _pauseMenu, _gameEndMenu, _nameInputMenu, _gameScoresMenu, _mainMenu, _highScoresMenu;
+    [SerializeField] private GameObject _finishMenu, _nextLevelMenu, _player, _pauseMenu, _gameEndMenu, _nameInputMenu, _gameScoresMenu, _mainMenu, _highScoresMenu, _background;
     [SerializeField] private GameObject[] _levelsData;
+    [SerializeField] private Sprite[] _sprites;
+    private SpriteRenderer _renderer;
     private PlayerController _playerController;
     private int _currentLevel = 0;
     private bool _isSecretLevel = false;
@@ -16,6 +18,7 @@ public class General : MonoBehaviour
     void Start()
     {
         _playerController = _player.GetComponent<PlayerController>();
+        _renderer = _background.GetComponent<SpriteRenderer>();
         Time.timeScale = 1;
         Cursor.visible = false;
         if (SceneManager.GetActiveScene().name == "MainMenu")
@@ -112,6 +115,7 @@ public class General : MonoBehaviour
             _levelsData[_currentLevel + 1].SetActive(true);
             _currentLevel++;
         }
+        _renderer.sprite = _sprites[_currentLevel / 3];
     }
 
     public void GameEnd()
