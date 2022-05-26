@@ -10,7 +10,7 @@ public class BallController : MonoBehaviour
     private GameObject _player;
     private PlayerController _playerController;
     private Rigidbody2D _ballRigidbody;
-    private float _ballSpeed = 5f, _speedModifier = 1f, _timer = 0f, _speedUpTime = 30f;
+    private float _ballSpeed = 6f, _speedModifier = 1f, _timer = 0f, _speedUpTime = 30f;
     private Vector2 _bounceDirection, _lastVelocity;
     private bool _isPushed = false;
 
@@ -34,7 +34,7 @@ public class BallController : MonoBehaviour
         }
         if (_timer > _speedUpTime)
         {
-            _speedModifier = Mathf.Clamp(_speedModifier * 1.1f, 0.5f, 2f); ;
+            _speedModifier = Mathf.Clamp(_speedModifier * 1.2f, 0.5f, 1.9f); ;
             _timer = 0f;
         }
         MoveCorrector();

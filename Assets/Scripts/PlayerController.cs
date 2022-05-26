@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_lives > 0)
         {
-            _ = Instantiate(_ballPrefab, new Vector2(0, 0), Quaternion.Euler(0, 0, 0));
+            _ = Instantiate(_ballPrefab, new Vector2(0, -1), Quaternion.Euler(0, 0, 0));
         }
         else
         {

@@ -15,6 +15,7 @@ public class CharacterBonus : MonoBehaviour, IBonusInterface
         gameObject.GetComponent<SpriteRenderer>().sprite = sprites[_bonusType - 5];
     }
 
+    // ToDo: redo as public property.
     public int ReturnBonusType()
     {
         return _bonusType;
