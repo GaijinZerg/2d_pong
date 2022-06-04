@@ -26,6 +26,7 @@ public class BonusBrickController : Brick, IBrickInterface
 
     private void OnDestroy()
     {
+        // ToDo: make this event. Other blocks are the same.
         GeneralComponent.SceneChanger();
     }
 

@@ -138,8 +138,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _soundEffects:
-  - {fileID: 8300000, guid: daed05bb1915e8e49b909effa5ae8f51, type: 3}
-  - {fileID: 8300000, guid: a457f4e38a6df6d4cabf504c64bc7c31, type: 3}
+  - {fileID: 8300000, guid: a2d2b1a705c3f324ea354da8b053ce52, type: 3}
+  - {fileID: 8300000, guid: f9b68ec2455988c4faea4441cc9f7a7c, type: 3}
+  - {fileID: 8300000, guid: b62d97caa65446f4086ab56244503555, type: 3}
+  - {fileID: 8300000, guid: e2b6a61069bd04747aab62b97f9b5e76, type: 3}
 --- !u!82 &-7529854226856335112
 AudioSource:
   m_ObjectHideFlags: 0

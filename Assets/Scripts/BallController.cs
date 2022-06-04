@@ -43,7 +43,18 @@ public class BallController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        _soundComponent.clip = _soundEffects[0];
+        switch (collision.gameObject.tag)
+        {
+            case "Player":
+                _soundComponent.clip = _soundEffects[2];
+                break;
+            case "Brick":
+                _soundComponent.clip = _soundEffects[3];
+                break;
+            default:
+                _soundComponent.clip = _soundEffects[0];
+                break;
+        }
         _soundComponent.volume = PlayerPrefs.HasKey("Sound") ? PlayerPrefs.GetFloat("Sound") : 1;
         _soundComponent.Play();
         // We need to keep the ball speed constant.

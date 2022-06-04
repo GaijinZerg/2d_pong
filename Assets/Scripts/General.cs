@@ -10,6 +10,8 @@ public class General : MonoBehaviour
     [SerializeField] private GameObject _finishMenu, _nextLevelMenu, _player, _pauseMenu, _gameEndMenu, _nameInputMenu, _gameScoresMenu, _mainMenu, _highScoresMenu, _background;
     [SerializeField] private GameObject[] _levelsData;
     [SerializeField] private Sprite[] _sprites;
+    [SerializeField] private AudioClip[] _audioClips;
+    private AudioSource _audioSource;
     private SpriteRenderer _renderer;
     private PlayerController _playerController;
     private int _currentLevel = 0;
@@ -17,6 +19,7 @@ public class General : MonoBehaviour
 
     void Start()
     {
+        _audioSource = gameObject.GetComponent<AudioSource>();
         _playerController = _player.GetComponent<PlayerController>();
         _renderer = _background.GetComponent<SpriteRenderer>();
         Time.timeScale = 1;
@@ -125,6 +128,7 @@ public class General : MonoBehaviour
 
     public void SceneChanger()
     {
+        _audioSource.volume = PlayerPrefs.HasKey("Sound") ? PlayerPrefs.GetFloat("Sound") : 1;
         if (GameObject.FindGameObjectsWithTag("Brick").Length == 0)
         {
             if (SceneManager.GetActiveScene().name == "Level")
@@ -134,14 +138,22 @@ public class General : MonoBehaviour
                 Destroy(GameObject.FindGameObjectWithTag("Ball"));
                 if (_currentLevel < (_levelsData.Length - 2))
                 {
+                    // ToDo: check this. Is it a correct place to play sound?
+                    // ToDo: add defeat sound into PlayerController::GameEndController.
+                    _audioSource.clip = _audioClips[0];
+                    _audioSource.Play();
                     _nextLevelMenu.SetActive(true);
                 }
                 else if ((_currentLevel == (_levelsData.Length - 2)) && _isSecretLevel)
                 {
+                    _audioSource.clip = _audioClips[0];
+                    _audioSource.Play();
                     _nextLevelMenu.SetActive(true);
                 }
                 else
                 {
+                    _audioSource.clip = _audioClips[1];
+                    _audioSource.Play();
                     _gameEndMenu.SetActive(true);
                 }
             }
@@ -158,5 +170,12 @@ public class General : MonoBehaviour
     public void SetSecretLevel()
     {
         _isSecretLevel = true;
+    }
+
+    public void ButtonClickSound()
+    {
+        _audioSource.volume = PlayerPrefs.HasKey("Sound") ? PlayerPrefs.GetFloat("Sound") : 1;
+        _audioSource.clip = _audioClips[2];
+        _audioSource.Play();
     }
 }

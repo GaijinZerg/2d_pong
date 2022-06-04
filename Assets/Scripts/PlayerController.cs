@@ -7,9 +7,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private GameObject _ballPrefab, _gameOverMenu, _pauseMenu, _scoresText, _livesText, _general;
+    [SerializeField] private AudioClip[] _audioClips;
     private ValeraManager _manager;
     private GameObject _ballObject;
     private TextMeshProUGUI _scoresTextMesh, _livesTextMesh;
+    private AudioSource _audioSource;
     private readonly float _horizontalRestriction = 6.1f;
     private readonly float _playerSpeed = 50f;
     private float _sensitivity;
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        _audioSource = gameObject.GetComponent<AudioSource>();
         _sensitivity = PlayerPrefs.HasKey("Sensitivity") ? PlayerPrefs.GetFloat("Sensitivity") : 1;
         _playerScore = PlayerPrefs.HasKey("Score") ? PlayerPrefs.GetInt("Score") : 0;
         Cursor.visible = false;
@@ -74,6 +77,9 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            _audioSource.clip = _audioClips[2];
+            _audioSource.volume = PlayerPrefs.HasKey("Sound") ? PlayerPrefs.GetFloat("Sound") : 1;
+            _audioSource.Play();
             _gameOverFlag = true;
             Time.timeScale = 0;
             Cursor.visible = true;
@@ -83,13 +89,18 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        _audioSource.volume = PlayerPrefs.HasKey("Sound") ? PlayerPrefs.GetFloat("Sound") : 1;
         if (collision.gameObject.CompareTag("Bonus"))
         {
+            _audioSource.clip = _audioClips[1];
+            _audioSource.Play();
             ProcessBonus(collision.gameObject.GetComponent<IBonusInterface>().ReturnBonusType());
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Brick"))
         {
+            _audioSource.clip = _audioClips[0];
+            _audioSource.Play();
             collision.gameObject.GetComponent<IBrickInterface>().Catch();
         }
     }
