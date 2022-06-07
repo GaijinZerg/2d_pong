@@ -5469,7 +5469,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: START
+  m_text: PLAY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5735,6 +5735,7 @@ MonoBehaviour:
   _mainMenu: {fileID: 1128133168}
   _highScoresMenu: {fileID: 2113031901}
   _background: {fileID: 1172926891}
+  _levelTextObject: {fileID: 1172926891}
   _levelsData: []
   _sprites: []
   _audioClips:

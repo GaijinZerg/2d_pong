@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private GameObject _ballPrefab, _gameOverMenu, _pauseMenu, _scoresText, _livesText, _general;
     [SerializeField] private AudioClip[] _audioClips;
+    private BonusGenerator _bonusGenerator;
     private ValeraManager _manager;
     private GameObject _ballObject;
     private TextMeshProUGUI _scoresTextMesh, _livesTextMesh;
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
         _livesTextMesh.text = _lives.ToString();
         _ballObject = GameObject.FindGameObjectWithTag("Ball");
         _manager = _general.GetComponent<ValeraManager>();
+        _bonusGenerator = _general.GetComponent<BonusGenerator>();
     }
 
     public void ResetBall()
@@ -61,6 +63,7 @@ public class PlayerController : MonoBehaviour
         _playerScore += add;
         PlayerPrefs.SetInt("Score", _playerScore);
         _scoresTextMesh.text = _playerScore.ToString();
+        _bonusGenerator.Comparator(_playerScore);
     }
 
     public void ChangeLivesCount(int count)

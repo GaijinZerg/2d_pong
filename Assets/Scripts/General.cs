@@ -22,8 +22,11 @@ public class General : MonoBehaviour
 
     void Start()
     {
-        _levelText = _levelTextObject.GetComponent<TextMeshProUGUI>();
-        _levelText.text = "LEVEL: 1";
+        if (_levelTextObject.GetComponent<TextMeshProUGUI>() != null)
+        {
+            _levelText = _levelTextObject.GetComponent<TextMeshProUGUI>();
+            _levelText.text = "LEVEL: 1";
+        }
         _audioSource = gameObject.GetComponent<AudioSource>();
         _playerController = _player.GetComponent<PlayerController>();
         _renderer = _background.GetComponent<SpriteRenderer>();
