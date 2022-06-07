@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,9 +9,11 @@ using UnityEngine.SceneManagement;
 public class General : MonoBehaviour
 {
     [SerializeField] private GameObject _finishMenu, _nextLevelMenu, _player, _pauseMenu, _gameEndMenu, _nameInputMenu, _gameScoresMenu, _mainMenu, _highScoresMenu, _background;
+    [SerializeField] private GameObject _levelTextObject;
     [SerializeField] private GameObject[] _levelsData;
     [SerializeField] private Sprite[] _sprites;
     [SerializeField] private AudioClip[] _audioClips;
+    private TextMeshProUGUI _levelText;
     private AudioSource _audioSource;
     private SpriteRenderer _renderer;
     private PlayerController _playerController;
@@ -19,6 +22,8 @@ public class General : MonoBehaviour
 
     void Start()
     {
+        _levelText = _levelTextObject.GetComponent<TextMeshProUGUI>();
+        _levelText.text = "LEVEL: 1";
         _audioSource = gameObject.GetComponent<AudioSource>();
         _playerController = _player.GetComponent<PlayerController>();
         _renderer = _background.GetComponent<SpriteRenderer>();
@@ -119,6 +124,7 @@ public class General : MonoBehaviour
             _currentLevel++;
         }
         _renderer.sprite = _sprites[_currentLevel / 3];
+        _levelText.text = "LEVEL: " + (_currentLevel + 1).ToString();
     }
 
     public void GameEnd()
