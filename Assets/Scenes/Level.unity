@@ -4559,8 +4559,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e264b8d559a17f4b844876d67c5322d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _liveBonus: {fileID: 2233339974812390750, guid: b2a5a21444c85f54a9c1d6f686e83066, type: 3}
-  _characterBonus: {fileID: 2233339974812390750, guid: b37951358504b2d448c775d21c85bd72, type: 3}
+  _liveBonusPrefab: {fileID: 2233339974812390750, guid: b2a5a21444c85f54a9c1d6f686e83066, type: 3}
+  _characterBonusPrefab: {fileID: 2233339974812390750, guid: b37951358504b2d448c775d21c85bd72, type: 3}
+  _liveBonusImage: {fileID: 680127490}
+  _characterBonusImage: {fileID: 832923758}
+  _bonusSplashPrefab:
+  - {fileID: 1619094311959921579, guid: ead5e04ac28120e498e961ecd4eef3d2, type: 3}
+  - {fileID: 1619094311959921579, guid: 80c2d4257e79de24daae2ed979f15856, type: 3}
 --- !u!1001 &293135103
 PrefabInstance:
   m_ObjectHideFlags: 0

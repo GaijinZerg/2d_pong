@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class BonusGenerator : MonoBehaviour
 {
-    [SerializeField] private GameObject _liveBonus, _characterBonus;
+    [SerializeField] private GameObject _liveBonusPrefab, _characterBonusPrefab, _liveBonusImage, _characterBonusImage;
+    [SerializeField] private GameObject[] _bonusSplashPrefab;
     private int _liveScoreCount = 1, _characterScoreCount = 1;
-    private int _livePrice = 20000, _charcterPrice = 30000;
+    private int _livePrice = 3000, _charcterPrice = 5000;
 
     public void Comparator(int score)
     {
@@ -25,10 +26,14 @@ public class BonusGenerator : MonoBehaviour
         switch (type)
         {
             case 1:
-                _ = Instantiate(_liveBonus, new Vector2(Random.Range(-6f, 6f), gameObject.transform.position.y), Quaternion.Euler(0, 0, 0));
+                _ = Instantiate(_liveBonusPrefab, new Vector2(Random.Range(-6f, 6f), gameObject.transform.position.y), Quaternion.Euler(0, 0, 0));
+                _ = Instantiate(_bonusSplashPrefab[0], _liveBonusImage.transform.position, Quaternion.Euler(0, 0, 0));
+                _ = Instantiate(_bonusSplashPrefab[1], _liveBonusImage.transform.position, Quaternion.Euler(0, 0, 0));
                 break;
             case 2:
-                _ = Instantiate(_characterBonus, new Vector2(Random.Range(-6f, 6f), gameObject.transform.position.y), Quaternion.Euler(0, 0, 0));
+                _ = Instantiate(_characterBonusPrefab, new Vector2(Random.Range(-6f, 6f), gameObject.transform.position.y), Quaternion.Euler(0, 0, 0));
+                _ = Instantiate(_bonusSplashPrefab[0], _characterBonusImage.transform.position, Quaternion.Euler(0, 0, 0));
+                _ = Instantiate(_bonusSplashPrefab[1], _characterBonusImage.transform.position, Quaternion.Euler(0, 0, 0));
                 break;
         }
     }
