@@ -5,7 +5,7 @@ public class BonusGenerator : MonoBehaviour
     [SerializeField] private GameObject _liveBonusPrefab, _characterBonusPrefab, _liveBonusImage, _characterBonusImage;
     [SerializeField] private GameObject[] _bonusSplashPrefab;
     private int _liveScoreCount = 1, _characterScoreCount = 1;
-    private int _livePrice = 3000, _charcterPrice = 5000;
+    private int _livePrice = 20000, _charcterPrice = 30000;
 
     public void Comparator(int score)
     {

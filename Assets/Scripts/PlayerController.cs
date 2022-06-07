@@ -117,35 +117,44 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case 2:
+                this.AddScore(100);
                 this.ChangeLivesCount(1);
                 break;
 
             case 3:
+                this.AddScore(100);
                 _ballObject.GetComponent<BallController>().SetSpeedModifier(1.2f);
                 break;
 
             case 4:
+                this.AddScore(100);
                 _ballObject.GetComponent<BallController>().SetSpeedModifier(0.85f);
                 break;
             
             // Cases 5-10 are the same but only the character is different.
             // ToDo: add character catching.
             case 5:
+                this.AddScore(100);
                 _manager.ActivateCharacter(0);
                 break;
             case 6:
+                this.AddScore(100);
                 _manager.ActivateCharacter(1);
                 break;
             case 7:
+                this.AddScore(100);
                 _manager.ActivateCharacter(2);
                 break;
             case 8:
+                this.AddScore(100);
                 _manager.ActivateCharacter(3);
                 break;
             case 9:
+                this.AddScore(100);
                 _manager.ActivateCharacter(4);
                 break;
             case 10:
+                this.AddScore(100);
                 _manager.ActivateCharacter(5);
                 break;
 
