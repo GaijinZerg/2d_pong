@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private AudioSource _audioSource;
     private readonly float _horizontalRestriction = 6.1f;
     private readonly float _playerSpeed = 50f;
-    private float _sensitivity;
+    private float _sensitivity, _sensitivityCorrector = 0.5f;
     private int _playerScore, _lives = 3;
     private bool _gameOverFlag = false;
     private float _restriction = 0;
@@ -50,11 +50,13 @@ public class PlayerController : MonoBehaviour
 
     public void Move(float move)
     {
+        // ToDo: check if it could be done better like checking if it was change or not.
+        _sensitivity = PlayerPrefs.HasKey("Sensitivity") ? PlayerPrefs.GetFloat("Sensitivity") : 1;
         // This restriction is necessary to avoid shattering when collapsing with colliders.
-        _restriction = gameObject.transform.position.x + move * _playerSpeed * _sensitivity * Time.deltaTime;
+        _restriction = gameObject.transform.position.x + move * _playerSpeed * _sensitivity * _sensitivityCorrector * Time.deltaTime;
         if (Mathf.Abs(_restriction) < _horizontalRestriction)
         {
-            gameObject.transform.position = gameObject.transform.position + new Vector3(move * _playerSpeed * _sensitivity * Time.deltaTime, 0, 0);
+            gameObject.transform.position = gameObject.transform.position + new Vector3(move * _playerSpeed * _sensitivity * _sensitivityCorrector * Time.deltaTime, 0, 0);
         }
     }
 
