@@ -1,3 +1,4 @@
+using Steamworks;
 using System.Linq;
 using UnityEngine;
 
@@ -27,6 +28,10 @@ public class ValeraManager : MonoBehaviour
     {
         if (!_characters.Contains(false))
         {
+            if (SteamManager.Initialized)
+            {
+                SteamUserStats.SetAchievement("VALERA_COMPLETED");
+            }
             return true;
         }
         else

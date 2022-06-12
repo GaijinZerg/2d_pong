@@ -1,4 +1,6 @@
+using Steamworks;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -63,6 +65,10 @@ public class General : MonoBehaviour
 
             if (PlayerPrefs.GetInt("Score") > scoresSort[4])
             {
+                if (SteamManager.Initialized && (PlayerPrefs.GetInt("Score") > scoresSort.Max()))
+                {
+                    SteamUserStats.SetAchievement("TOP_SCORE");
+                }
                 _nameInputMenu.SetActive(true);
                 _gameScoresMenu.SetActive(false);
             }
@@ -114,6 +120,10 @@ public class General : MonoBehaviour
         // ToDo: add announce for the secret level.
         if (_currentLevel == (_levelsData.Length - 1))
         {
+            if (SteamManager.Initialized)
+            {
+                SteamUserStats.SetAchievement("GAME_COMPLETED");
+            }
             _gameEndMenu.SetActive(true);
         }
         else
