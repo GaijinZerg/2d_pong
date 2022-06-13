@@ -10,12 +10,13 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class General : MonoBehaviour
 {
-    [SerializeField] private GameObject _finishMenu, _nextLevelMenu, _player, _pauseMenu, _gameEndMenu, _nameInputMenu, _gameScoresMenu, _mainMenu, _highScoresMenu, _background;
+    [SerializeField] private GameObject _finishMenu, _nextLevelMenu, _player, _pauseMenu, _gameEndMenu,
+        _nameInputMenu, _gameScoresMenu, _mainMenu, _highScoresMenu, _background, _nextLevel;
     [SerializeField] private GameObject _levelTextObject;
     [SerializeField] private GameObject[] _levelsData;
     [SerializeField] private Sprite[] _sprites;
     [SerializeField] private AudioClip[] _audioClips;
-    private TextMeshProUGUI _levelText;
+    private TextMeshProUGUI _levelText, _nextLevelText;
     private AudioSource _audioSource;
     private SpriteRenderer _renderer;
     private PlayerController _playerController;
@@ -32,6 +33,7 @@ public class General : MonoBehaviour
         _audioSource = gameObject.GetComponent<AudioSource>();
         _playerController = _player.GetComponent<PlayerController>();
         _renderer = _background.GetComponent<SpriteRenderer>();
+        _nextLevelText = _nextLevel.GetComponent<TextMeshProUGUI>();
         Time.timeScale = 1;
         Cursor.visible = false;
         if (SceneManager.GetActiveScene().name == "MainMenu")
@@ -158,7 +160,6 @@ public class General : MonoBehaviour
                 if (_currentLevel < (_levelsData.Length - 2))
                 {
                     // ToDo: check this. Is it a correct place to play sound?
-                    // ToDo: add defeat sound into PlayerController::GameEndController.
                     _audioSource.clip = _audioClips[0];
                     _audioSource.Play();
                     _nextLevelMenu.SetActive(true);
@@ -168,6 +169,7 @@ public class General : MonoBehaviour
                     _audioSource.clip = _audioClips[0];
                     _audioSource.Play();
                     _nextLevelMenu.SetActive(true);
+                    _nextLevelText.text = "Congratulations!\nYou have unlocked the secret level!";
                 }
                 else
                 {

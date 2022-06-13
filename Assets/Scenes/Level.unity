@@ -4568,6 +4568,7 @@ MonoBehaviour:
   _mainMenu: {fileID: 1161296852}
   _highScoresMenu: {fileID: 1161296852}
   _background: {fileID: 937032029}
+  _nextLevel: {fileID: 1295592967}
   _levelTextObject: {fileID: 2066466790}
   _levelsData:
   - {fileID: 269464553}
