@@ -150,7 +150,7 @@ public class General : MonoBehaviour
     public void SceneChanger()
     {
         _audioSource.volume = PlayerPrefs.HasKey("Sound") ? PlayerPrefs.GetFloat("Sound") : 1;
-        if (GameObject.FindGameObjectsWithTag("Brick").Length == 0)
+        if ((GameObject.FindGameObjectsWithTag("Brick").Length == 0) && (GameObject.FindGameObjectsWithTag("Bonus").Length == 0))
         {
             if (SceneManager.GetActiveScene().name == "Level")
             {
