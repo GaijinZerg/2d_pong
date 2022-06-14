@@ -23,6 +23,33 @@ public class General : MonoBehaviour
     private int _currentLevel = 0;
     private bool _isSecretLevel = false;
 
+    private void Awake()
+    {
+        int sum = 0;
+        int[] a = new int[11];
+        int[] sample = { 1, 2, 3, 4, 5, 6 };
+        bool[] check = { false, false, false, false, false, false };
+        for (int i = 1; i < 1000; i++)
+        {
+            for (int j = 1; j < 10; j++)
+            {
+                a[j - 1] = Random.Range(1, 7);
+                if (sample.Contains(a[j - 1]))
+                {
+                    check[a[j - 1] - 1] = true;
+                }
+            }
+            if (!check.Contains(false))
+            {
+                sum++;
+            }
+            for (int k = 0; k < 6; k++)
+            {
+                check[k] = false;
+            }
+        }
+        Debug.Log(sum);
+    }
     void Start()
     {
         if (_levelTextObject.GetComponent<TextMeshProUGUI>() != null)
