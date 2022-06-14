@@ -17,7 +17,10 @@ public class BonusParent : MonoBehaviour, IBonusInterface
 
     public void OnDestroy()
     {
-        _general.SceneChanger();
+        if (_general != null)
+        {
+            _general.SceneChanger();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

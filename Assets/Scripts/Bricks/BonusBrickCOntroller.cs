@@ -24,20 +24,6 @@ public class BonusBrickController : Brick, IBrickInterface
         // This block never falls.
     }
 
-    private void OnDestroy()
-    {
-        // ToDo: make this event. Other blocks are the same.
-        GeneralComponent.SceneChanger();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("LowerTrigger"))
-        {
-            Destroy(gameObject);
-        }
-    }
-
     // There are several types of bonuses.
     // extra life - 5%
     // score - 55%

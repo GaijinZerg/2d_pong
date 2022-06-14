@@ -59,17 +59,4 @@ public class SoftBrickController : Brick, IBrickInterface
         PlayerController.AddScore(properties.Score);
         Destroy(gameObject);
     }
-
-    private void OnDestroy()
-    {
-        GeneralComponent.SceneChanger();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("LowerTrigger"))
-        {
-            Destroy(gameObject);
-        }
-    }
 }

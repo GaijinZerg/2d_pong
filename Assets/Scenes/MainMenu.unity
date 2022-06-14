@@ -4468,6 +4468,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1128133168}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 2004068754}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -6038,9 +6050,10 @@ MonoBehaviour:
   _gameEndMenu: {fileID: 1172926891}
   _nameInputMenu: {fileID: 1172926891}
   _gameScoresMenu: {fileID: 1172926891}
-  _mainMenu: {fileID: 1128133168}
+  _mainMenu: {fileID: 2004068754}
   _highScoresMenu: {fileID: 2113031901}
   _background: {fileID: 1172926891}
+  _nextLevel: {fileID: 1172926891}
   _levelTextObject: {fileID: 1172926891}
   _levelsData: []
   _sprites: []
