@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour
     private AudioSource _audioSource;
     private readonly float _horizontalRestriction = 6.1f;
     private readonly float _playerSpeed = 50f;
-    private float _sensitivity, _sensitivityCorrector = 0.5f;
+    private float _sensitivity;
+    private readonly float _sensitivityCorrector = 0.02f;
     private int _playerScore, _lives = 3;
     private bool _gameOverFlag = false;
     private float _restriction = 0;
