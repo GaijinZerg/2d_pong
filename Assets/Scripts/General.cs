@@ -119,7 +119,6 @@ public class General : MonoBehaviour
 
     public void StartNextLevel()
     {
-        // ToDo: add announce for the secret level.
         if (_currentLevel == (_levelsData.Length - 1))
         {
             if (SteamManager.Initialized)
@@ -159,7 +158,6 @@ public class General : MonoBehaviour
                 Destroy(GameObject.FindGameObjectWithTag("Ball"));
                 if (_currentLevel < (_levelsData.Length - 2))
                 {
-                    // ToDo: check this. Is it a correct place to play sound?
                     _audioSource.clip = _audioClips[0];
                     _audioSource.Play();
                     _nextLevelMenu.SetActive(true);

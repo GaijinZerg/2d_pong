@@ -51,7 +51,6 @@ public class PlayerController : MonoBehaviour
 
     public void Move(float move)
     {
-        // ToDo: check if it could be done better like checking if it was change or not.
         _sensitivity = PlayerPrefs.HasKey("Sensitivity") ? PlayerPrefs.GetFloat("Sensitivity") : 1;
         // This restriction is necessary to avoid shattering when collapsing with colliders.
         _restriction = gameObject.transform.position.x + move * _playerSpeed * _sensitivity * _sensitivityCorrector * Time.deltaTime;
@@ -135,7 +134,6 @@ public class PlayerController : MonoBehaviour
                 break;
             
             // Cases 5-10 are the same but only the character is different.
-            // ToDo: add character catching.
             case 5:
                 this.AddScore(100);
                 _manager.ActivateCharacter(0);

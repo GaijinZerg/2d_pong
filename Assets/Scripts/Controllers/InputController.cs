@@ -30,7 +30,6 @@ public class InputController : MonoBehaviour
     private void OnEnable()
     {
         _masterInput.Enable();
-        // ToDo: consider another scenes like Game End and High Scores.
         if (SceneManager.GetActiveScene().name != "Level")
         {
             _masterInput.UI.Enable();
@@ -81,7 +80,6 @@ public class InputController : MonoBehaviour
         }
     }
 
-    // ToDo: maybe we need an option to switch between reload options.
     public void ReloadInput()
     {
         _masterInput.UI.Disable();

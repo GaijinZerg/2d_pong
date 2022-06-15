@@ -13,7 +13,6 @@ public class CSVManager : MonoBehaviour
         // Write initial file if does not exist.
         if (!File.Exists(_folderPath + "/highscores.sav"))
         {
-            // ToDo: fix the scores.
             TextWriter writer = new StreamWriter(_folderPath + "/highscores.sav", true);
             writer.WriteLine("Player Name;Player Score");
             writer.Close();

@@ -13,7 +13,6 @@ public class ValeraManager : MonoBehaviour
         _general = GameObject.FindGameObjectWithTag("General").GetComponent<General>();
     }
 
-    // ToDo: we need event here.
     public void ActivateCharacter(int number)
     {
         _characters[number] = true;
