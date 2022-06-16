@@ -16,11 +16,11 @@ public class CSVManager : MonoBehaviour
             TextWriter writer = new StreamWriter(_folderPath + "/highscores.sav", true);
             writer.WriteLine("Player Name;Player Score");
             writer.Close();
-            AddLineToCSV("Tawako", 70000);
-            AddLineToCSV("Valera", 65000);
-            AddLineToCSV("Red Fish", 60000);
-            AddLineToCSV("Harry", 50000);
-            AddLineToCSV("Mina", 40000);
+            AddLineToCSV("Tawako", 80000);
+            AddLineToCSV("Valera", 75000);
+            AddLineToCSV("Red Fish", 70000);
+            AddLineToCSV("Harry", 65000);
+            AddLineToCSV("Mina", 60000);
             writer.Close();
         }
     }
