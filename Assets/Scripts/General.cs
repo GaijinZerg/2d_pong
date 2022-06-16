@@ -22,6 +22,7 @@ public class General : MonoBehaviour
     private PlayerController _playerController;
     private int _currentLevel = 0;
     private bool _isSecretLevel = false;
+    public GameObject optionsMenu;
 
     void Start()
     {

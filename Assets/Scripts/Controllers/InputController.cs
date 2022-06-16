@@ -76,6 +76,7 @@ public class InputController : MonoBehaviour
         {
             _masterInput.UI.Disable();
             _masterInput.Player.Enable();
+            _general.optionsMenu.SetActive(false);
             _general.BackToGame();
         }
     }

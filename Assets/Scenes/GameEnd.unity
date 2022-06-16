@@ -2235,10 +2235,12 @@ MonoBehaviour:
   _mainMenu: {fileID: 1172926891}
   _highScoresMenu: {fileID: 1172926891}
   _background: {fileID: 1172926891}
+  _nextLevel: {fileID: 0}
   _levelTextObject: {fileID: 0}
   _levelsData: []
   _sprites: []
   _audioClips: []
+  optionsMenu: {fileID: 1172926891}
 --- !u!4 &1718477161
 Transform:
   m_ObjectHideFlags: 0
