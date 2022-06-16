@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -78,7 +79,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_lives > 0)
         {
-            _ = Instantiate(_ballPrefab, new Vector2(0, -1), Quaternion.Euler(0, 0, 0));
+            StartCoroutine(GenerateBall());
         }
         else
         {
@@ -162,5 +163,11 @@ public class PlayerController : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    IEnumerator GenerateBall()
+    {
+        yield return new WaitForSeconds(1);
+        _ = Instantiate(_ballPrefab, new Vector2(0, -1), Quaternion.Euler(0, 0, 0));
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     [SerializeField] private AudioClip[] _soundEffects;
+    [SerializeField] private GameObject _ballLostSplash1, _ballLostSplash2, _ballNewSplash1, _ballNewSplash2;
     private AudioSource _soundComponent;
     private GameObject _player;
     private PlayerController _playerController;
@@ -21,6 +22,8 @@ public class BallController : MonoBehaviour
         _playerController = _player.GetComponent<PlayerController>();
         _ballRigidbody = gameObject.GetComponent<Rigidbody2D>();
         _playerController.ResetBall();
+        _ = Instantiate(_ballNewSplash1, transform.position, Quaternion.Euler(0, 0, 0));
+        _ = Instantiate(_ballNewSplash2, transform.position, Quaternion.Euler(0, 0, 0));
     }
 
     private void Update()
@@ -74,6 +77,8 @@ public class BallController : MonoBehaviour
             AudioSource.PlayClipAtPoint(_soundEffects[1], gameObject.transform.position, PlayerPrefs.HasKey("Sound") ? PlayerPrefs.GetFloat("Sound") : 1);
             _playerController.ChangeLivesCount(-1);
             _playerController.GameEndController();
+            _ = Instantiate(_ballLostSplash1, transform.position, Quaternion.Euler(0, 0, 0));
+            _ = Instantiate(_ballLostSplash2, transform.position, Quaternion.Euler(0, 0, 0));
             Destroy(gameObject);
         }
     }

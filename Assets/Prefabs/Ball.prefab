@@ -142,6 +142,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f9b68ec2455988c4faea4441cc9f7a7c, type: 3}
   - {fileID: 8300000, guid: b62d97caa65446f4086ab56244503555, type: 3}
   - {fileID: 8300000, guid: e2b6a61069bd04747aab62b97f9b5e76, type: 3}
+  _ballLostSplash1: {fileID: 1619094311959921579, guid: 7f9e2790a4bcdbb44bdbf0cfc6c54a46, type: 3}
+  _ballLostSplash2: {fileID: 1619094311959921579, guid: 7ae97c222ecc28b42bcd9e2bb028a84d, type: 3}
+  _ballNewSplash1: {fileID: 1619094311959921579, guid: ead5e04ac28120e498e961ecd4eef3d2, type: 3}
+  _ballNewSplash2: {fileID: 1619094311959921579, guid: 80c2d4257e79de24daae2ed979f15856, type: 3}
 --- !u!82 &-7529854226856335112
 AudioSource:
   m_ObjectHideFlags: 0
