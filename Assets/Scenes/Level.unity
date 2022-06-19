@@ -19846,7 +19846,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Congratulations!
 
-    You have completed all levels!'
+    You have completed all the levels!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7844c9af2e8c84c4087ff5c522a660ba, type: 2}
   m_sharedMaterial: {fileID: -2151237260087596047, guid: 7844c9af2e8c84c4087ff5c522a660ba, type: 2}
@@ -28106,7 +28106,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "You have lost all lives.... \nbut you can try again!"
+  m_text: "You have lost all your lives\u2026\r\nBut you can try again!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7844c9af2e8c84c4087ff5c522a660ba, type: 2}
   m_sharedMaterial: {fileID: -2151237260087596047, guid: 7844c9af2e8c84c4087ff5c522a660ba, type: 2}

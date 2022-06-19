@@ -6880,9 +6880,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "This game was developed by gothSoft studio (well, it is actually only
-    one developer) with support of freelancers.\r\nWho is Tawako? \nShe is a Valera's
-    friend :)\r\n\nCheck this Instagram page to know more about them:\r\n\n\n\r\nYou
-    can also try our game about Valera:\r\n"
+    one developer) with the freelancers' support.\r\nWho is Tawako? \r\nShe is Valera's
+    friend :)\n\nCheck this Instagram page to know more about them:\n\n\n\r\nYou
+    can also try our game about Valera:\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7844c9af2e8c84c4087ff5c522a660ba, type: 2}
   m_sharedMaterial: {fileID: -2151237260087596047, guid: 7844c9af2e8c84c4087ff5c522a660ba, type: 2}
