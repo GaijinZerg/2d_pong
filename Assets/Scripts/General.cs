@@ -26,6 +26,10 @@ public class General : MonoBehaviour
 
     void Start()
     {
+        if (!PlayerPrefs.HasKey("Music"))
+        {
+            PlayerPrefs.SetFloat("Music", 0.5f);
+        }
         if (_levelTextObject.GetComponent<TextMeshProUGUI>() != null)
         {
             _levelText = _levelTextObject.GetComponent<TextMeshProUGUI>();
