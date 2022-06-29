@@ -71,6 +71,7 @@ public class General : MonoBehaviour
                 if (SteamManager.Initialized && (PlayerPrefs.GetInt("Score") > scoresSort.Max()))
                 {
                     SteamUserStats.SetAchievement("TOP_SCORE");
+                    SteamUserStats.StoreStats();
                 }
                 _nameInputMenu.SetActive(true);
                 _gameScoresMenu.SetActive(false);
@@ -125,6 +126,7 @@ public class General : MonoBehaviour
             if (SteamManager.Initialized)
             {
                 SteamUserStats.SetAchievement("GAME_COMPLETED");
+                SteamUserStats.StoreStats();
             }
             _gameEndMenu.SetActive(true);
         }

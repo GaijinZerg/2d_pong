@@ -30,6 +30,7 @@ public class ValeraManager : MonoBehaviour
             if (SteamManager.Initialized)
             {
                 SteamUserStats.SetAchievement("VALERA_COMPLETED");
+                SteamUserStats.StoreStats();
             }
             return true;
         }
