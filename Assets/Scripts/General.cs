@@ -22,6 +22,7 @@ public class General : MonoBehaviour
     private PlayerController _playerController;
     private int _currentLevel = 0;
     private bool _isSecretLevel = false;
+    public bool lockUI = false;
     public GameObject optionsMenu;
 
     void Start()
@@ -125,6 +126,7 @@ public class General : MonoBehaviour
 
     public void StartNextLevel()
     {
+        lockUI = false;
         Time.timeScale = 1;
         Cursor.visible = false;
         _nextLevelMenu.SetActive(false);
@@ -146,6 +148,7 @@ public class General : MonoBehaviour
         _audioSource.volume = PlayerPrefs.HasKey("Sound") ? PlayerPrefs.GetFloat("Sound") : 1;
         if ((GameObject.FindGameObjectsWithTag("Brick").Length == 0) && (GameObject.FindGameObjectsWithTag("Bonus").Length == 0))
         {
+            lockUI = true;
             if (SceneManager.GetActiveScene().name == "Level")
             {
                 Time.timeScale = 0;

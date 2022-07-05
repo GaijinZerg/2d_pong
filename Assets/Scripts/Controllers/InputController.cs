@@ -66,18 +66,21 @@ public class InputController : MonoBehaviour
 
     private void ReturnToPrevious()
     {
-        if (_masterInput.Player.enabled)
+        if (!_general.lockUI)
         {
-            _masterInput.UI.Enable();
-            _masterInput.Player.Disable();
-            _general.PauseGame();
-        }
-        else if (_masterInput.UI.enabled)
-        {
-            _masterInput.UI.Disable();
-            _masterInput.Player.Enable();
-            _general.optionsMenu.SetActive(false);
-            _general.BackToGame();
+            if (_masterInput.Player.enabled)
+            {
+                _masterInput.UI.Enable();
+                _masterInput.Player.Disable();
+                _general.PauseGame();
+            }
+            else if (_masterInput.UI.enabled)
+            {
+                _masterInput.UI.Disable();
+                _masterInput.Player.Enable();
+                _general.optionsMenu.SetActive(false);
+                _general.BackToGame();
+            }
         }
     }
 
