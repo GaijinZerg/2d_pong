@@ -125,25 +125,13 @@ public class General : MonoBehaviour
 
     public void StartNextLevel()
     {
-        if (_currentLevel == (_levelsData.Length - 1))
-        {
-            if (SteamManager.Initialized)
-            {
-                SteamUserStats.SetAchievement("GAME_COMPLETED");
-                SteamUserStats.StoreStats();
-            }
-            _gameEndMenu.SetActive(true);
-        }
-        else
-        {
-            Time.timeScale = 1;
-            Cursor.visible = false;
-            _nextLevelMenu.SetActive(false);
-            _playerController.GameEndController();
-            _levelsData[_currentLevel].SetActive(false);
-            _levelsData[_currentLevel + 1].SetActive(true);
-            _currentLevel++;
-        }
+        Time.timeScale = 1;
+        Cursor.visible = false;
+        _nextLevelMenu.SetActive(false);
+        _playerController.GameEndController();
+        _levelsData[_currentLevel].SetActive(false);
+        _levelsData[_currentLevel + 1].SetActive(true);
+        _currentLevel++;
         _renderer.sprite = _sprites[_currentLevel / 3];
         _levelText.text = "LEVEL: " + (_currentLevel + 1).ToString();
     }
@@ -175,6 +163,17 @@ public class General : MonoBehaviour
                     _audioSource.Play();
                     _nextLevelMenu.SetActive(true);
                     _nextLevelText.text = "Congratulations!\nYou have unlocked the secret level!";
+                }
+                else if ((_currentLevel == (_levelsData.Length - 1)) && _isSecretLevel)
+                {
+                    if (SteamManager.Initialized)
+                    {
+                        SteamUserStats.SetAchievement("GAME_COMPLETED");
+                        SteamUserStats.StoreStats();
+                    }
+                    _audioSource.clip = _audioClips[1];
+                    _audioSource.Play();
+                    _gameEndMenu.SetActive(true);
                 }
                 else
                 {
