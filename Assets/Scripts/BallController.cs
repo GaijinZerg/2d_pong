@@ -11,7 +11,7 @@ public class BallController : MonoBehaviour
     private GameObject _player;
     private PlayerController _playerController;
     private Rigidbody2D _ballRigidbody;
-    private float _ballSpeed = 6f, _speedModifier = 1f, _timer = 0f, _speedUpTime = 30f;
+    private float _ballSpeed = 6f, _speedModifier = 1f, _timer = 0f, _speedUpTime = 30f, diffAngle = 0f, tempMagnitude = 1f;
     private Vector2 _bounceDirection, _lastVelocity;
     private bool _isPushed = false;
 
@@ -40,6 +40,7 @@ public class BallController : MonoBehaviour
             _speedModifier = Mathf.Clamp(_speedModifier * 1.2f, 0.5f, 1.9f); ;
             _timer = 0f;
         }
+        StuckCorrector();
         MoveCorrector();
         _lastVelocity = _ballRigidbody.velocity;
     }
@@ -103,6 +104,20 @@ public class BallController : MonoBehaviour
         if (Mathf.Abs(_ballRigidbody.velocity.y / _ballRigidbody.velocity.x) > 4)
         {
             _ballRigidbody.velocity = new Vector2(Mathf.Sign(_ballRigidbody.velocity.x) * _ballRigidbody.velocity.magnitude * 0.25f, Mathf.Sign(_ballRigidbody.velocity.y) * _ballRigidbody.velocity.magnitude * 0.74f);
+        }
+    }
+
+    /* Avoids ball stuck.
+     * When angle of reflection is less than 45 degrees we add a random shift.
+     */
+    private void StuckCorrector()
+    {
+        diffAngle = 180 - Vector2.Angle(_lastVelocity, _ballRigidbody.velocity);
+        if (Mathf.Abs(diffAngle) < 45)
+        {
+            tempMagnitude = _ballRigidbody.velocity.magnitude;
+            _ballRigidbody.velocity = new Vector2(_ballRigidbody.velocity.x + Random.Range(0f, _ballRigidbody.velocity.magnitude * 0.2f), _ballRigidbody.velocity.y + Random.Range(0f, _ballRigidbody.velocity.magnitude * 0.2f));
+            _ballRigidbody.velocity = _ballRigidbody.velocity.normalized * tempMagnitude;
         }
     }
 }
