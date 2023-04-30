@@ -16,12 +16,12 @@ public class General : MonoBehaviour
     [SerializeField] private GameObject[] _levelsData;
     [SerializeField] private Sprite[] _sprites;
     [SerializeField] private AudioClip[] _audioClips;
-    private TextMeshProUGUI _levelText, _nextLevelText;
+    private TextMeshProUGUI levelText, nextLevelText;
     private AudioSource _audioSource;
     private SpriteRenderer _renderer;
     private PlayerController _playerController;
-    private int _currentLevel = 0;
-    private bool _isSecretLevel = false;
+    private int currentLevel = 0;
+    private bool isSecretLevel = false;
     public bool lockUI = false;
     public GameObject optionsMenu;
 
@@ -33,13 +33,13 @@ public class General : MonoBehaviour
         }
         if (_levelTextObject.GetComponent<TextMeshProUGUI>() != null)
         {
-            _levelText = _levelTextObject.GetComponent<TextMeshProUGUI>();
-            _levelText.text = "LEVEL: 1";
+            levelText = _levelTextObject.GetComponent<TextMeshProUGUI>();
+            levelText.text = "LEVEL: 1";
         }
         _audioSource = gameObject.GetComponent<AudioSource>();
         _playerController = _player.GetComponent<PlayerController>();
         _renderer = _background.GetComponent<SpriteRenderer>();
-        _nextLevelText = _nextLevel.GetComponent<TextMeshProUGUI>();
+        nextLevelText = _nextLevel.GetComponent<TextMeshProUGUI>();
         Time.timeScale = 1;
         Cursor.visible = false;
         if (SceneManager.GetActiveScene().name == "MainMenu")
@@ -131,11 +131,11 @@ public class General : MonoBehaviour
         Cursor.visible = false;
         _nextLevelMenu.SetActive(false);
         _playerController.GameEndController();
-        _levelsData[_currentLevel].SetActive(false);
-        _levelsData[_currentLevel + 1].SetActive(true);
-        _currentLevel++;
-        _renderer.sprite = _sprites[_currentLevel / 3];
-        _levelText.text = "LEVEL: " + (_currentLevel + 1).ToString();
+        _levelsData[currentLevel].SetActive(false);
+        _levelsData[currentLevel + 1].SetActive(true);
+        currentLevel++;
+        _renderer.sprite = _sprites[currentLevel / 3];
+        levelText.text = "LEVEL: " + (currentLevel + 1).ToString();
     }
 
     public void GameEnd()
@@ -154,20 +154,20 @@ public class General : MonoBehaviour
                 Time.timeScale = 0;
                 Cursor.visible = true;
                 Destroy(GameObject.FindGameObjectWithTag("Ball"));
-                if (_currentLevel < (_levelsData.Length - 2))
+                if (currentLevel < (_levelsData.Length - 2))
                 {
                     _audioSource.clip = _audioClips[0];
                     _audioSource.Play();
                     _nextLevelMenu.SetActive(true);
                 }
-                else if ((_currentLevel == (_levelsData.Length - 2)) && _isSecretLevel)
+                else if ((currentLevel == (_levelsData.Length - 2)) && isSecretLevel)
                 {
                     _audioSource.clip = _audioClips[0];
                     _audioSource.Play();
                     _nextLevelMenu.SetActive(true);
-                    _nextLevelText.text = "Congratulations!\nYou have unlocked the secret level!";
+                    nextLevelText.text = "Congratulations!\nYou have unlocked the secret level!";
                 }
-                else if ((_currentLevel == (_levelsData.Length - 1)) && _isSecretLevel)
+                else if ((currentLevel == (_levelsData.Length - 1)) && isSecretLevel)
                 {
                     if (SteamManager.Initialized)
                     {
@@ -197,7 +197,7 @@ public class General : MonoBehaviour
 
     public void SetSecretLevel()
     {
-        _isSecretLevel = true;
+        isSecretLevel = true;
     }
 
     public void ButtonClickSound()
