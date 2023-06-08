@@ -507,7 +507,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 30000 points
+  m_text: 40000 points
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7844c9af2e8c84c4087ff5c522a660ba, type: 2}
   m_sharedMaterial: {fileID: -2151237260087596047, guid: 7844c9af2e8c84c4087ff5c522a660ba, type: 2}
@@ -5216,7 +5216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &222460617
 Transform:
   m_ObjectHideFlags: 0
@@ -6165,7 +6165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &269464554
 Transform:
   m_ObjectHideFlags: 0
@@ -45660,7 +45660,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 25000 points
+  m_text: 30000 points
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7844c9af2e8c84c4087ff5c522a660ba, type: 2}
   m_sharedMaterial: {fileID: -2151237260087596047, guid: 7844c9af2e8c84c4087ff5c522a660ba, type: 2}

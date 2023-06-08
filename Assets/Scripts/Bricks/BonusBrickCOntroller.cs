@@ -26,10 +26,10 @@ public class BonusBrickController : Brick, IBrickInterface
 
     // There are several types of bonuses.
     // extra life - 5%
-    // score - 60%
-    // slow down - 10%
+    // score - 67%
     // speed up - 10%
-    // character - 15%
+    // slow down - 10%
+    // character - 8%
     private void BonusAction(GameObject generator)
     {
         float x = Random.Range(0f, 1f);
@@ -37,15 +37,15 @@ public class BonusBrickController : Brick, IBrickInterface
         {
             _ = Instantiate(_liveBonusPrefab, generator.transform.position, Quaternion.Euler(0, 0, 0));
         }
-        else if ((x >= 0.05f) && (x < 0.65f))
+        else if ((x >= 0.05f) && (x < 0.72f))
         {
             _ = Instantiate(_scoreBonusPrefab, generator.transform.position, Quaternion.Euler(0, 0, 0));
         }
-        else if ((x >= 0.65f) && (x < 0.75f))
+        else if ((x >= 0.72f) && (x < 0.82f))
         {
             _ = Instantiate(_speedUpBonusPrefab, generator.transform.position, Quaternion.Euler(0, 0, 0));
         }
-        else if ((x >= 0.75f) && (x < 0.85f))
+        else if ((x >= 0.82f) && (x < 0.92f))
         {
             _ = Instantiate(_slowDownBonusPrefab, generator.transform.position, Quaternion.Euler(0, 0, 0));
         }
