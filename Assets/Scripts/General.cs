@@ -22,6 +22,8 @@ public class General : MonoBehaviour
     private PlayerController _playerController;
     private int currentLevel = 0;
     private bool isSecretLevel = false;
+    private TMP_FontAsset japaneseFont;
+    private TMP_FontAsset englishFont;
     public bool lockUI = false;
     public GameObject optionsMenu;
 
@@ -165,7 +167,19 @@ public class General : MonoBehaviour
                     _audioSource.clip = _audioClips[0];
                     _audioSource.Play();
                     _nextLevelMenu.SetActive(true);
-                    nextLevelText.text = "Congratulations!\nYou have unlocked the secret level!";
+                    if (PlayerPrefs.GetString("Language") == "ja")
+                    {
+                        // ToDo: translation
+                        japaneseFont = Resources.Load<TMP_FontAsset>("Font/mplus-1p-bold_SDF_Dynamic");
+                        nextLevelText.font = japaneseFont;
+                        nextLevelText.text = "JAPANESE TRANSLATION!";
+                    }
+                    else
+                    {
+                        englishFont = Resources.Load<TMP_FontAsset>("Font/yoster_SDF");
+                        nextLevelText.font = englishFont;
+                        nextLevelText.text = "Congratulations!\nYou have unlocked the secret level!";
+                    }
                 }
                 else if ((currentLevel == (_levelsData.Length - 1)) && isSecretLevel)
                 {

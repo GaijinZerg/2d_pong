@@ -7007,6 +7007,7 @@ GameObject:
   - component: {fileID: 291817655}
   - component: {fileID: 291817656}
   - component: {fileID: 291817658}
+  - component: {fileID: 291817659}
   - component: {fileID: 291817657}
   m_Layer: 0
   m_Name: General
@@ -7230,6 +7231,38 @@ MonoBehaviour:
   _bonusSplashPrefab:
   - {fileID: 1619094311959921579, guid: ead5e04ac28120e498e961ecd4eef3d2, type: 3}
   - {fileID: 1619094311959921579, guid: 80c2d4257e79de24daae2ed979f15856, type: 3}
+--- !u!114 &291817659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291817652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1fded20c9e6ced4db6e3c8570a06d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainScoreText: {fileID: 1062725672}
+  mainLivesText: {fileID: 1939158106}
+  mainLevelText: {fileID: 2066466792}
+  mainBonus1Text: {fileID: 1786347090}
+  mainBonus2Text: {fileID: 1887804984}
+  mainBonus1ScoreText: {fileID: 2130418925}
+  mainBonus2ScoreText: {fileID: 23982707}
+  gameOverDescriptionText: {fileID: 1976769382}
+  gameOverReturnText: {fileID: 601604171}
+  pauseResumeText: {fileID: 875802456}
+  pauseOptionsText: {fileID: 562319290}
+  pauseExitText: {fileID: 1976886739}
+  optionsSensitivityText: {fileID: 2076417537}
+  optionsMusicText: {fileID: 298598309}
+  optionsSoundText: {fileID: 1019244416}
+  optionsResumeText: {fileID: 434311326}
+  nextLevelDescriptionText: {fileID: 1295592969}
+  nextLevelNextText: {fileID: 1207320113}
+  gameEndDescriptionText: {fileID: 1324086149}
+  gameEndNextText: {fileID: 429064076}
 --- !u!1001 &292734568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8547,7 +8580,7 @@ RectTransform:
   m_Children:
   - {fileID: 562319289}
   m_Father: {fileID: 1097689107}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -24809,9 +24842,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 331738583}
+  - {fileID: 1451604174}
   - {fileID: 1100819887}
   - {fileID: 338319607}
-  - {fileID: 1451604174}
   m_Father: {fileID: 1773526477}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25060,7 +25093,7 @@ RectTransform:
   m_Children:
   - {fileID: 1976886738}
   m_Father: {fileID: 1097689107}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -31547,7 +31580,7 @@ RectTransform:
   m_Children:
   - {fileID: 875802455}
   m_Father: {fileID: 1097689107}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
