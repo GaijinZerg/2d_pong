@@ -29,6 +29,7 @@ public class MainMenuAlter : MonoBehaviour
 
     void Start()
     {
+        TranslationTrigger.initiateTranslation += PrepareAndReloadTranslations;
         japaneseFont = Resources.Load<TMP_FontAsset>("Font/mplus-1p-bold_SDF_Dynamic");
         englishFont = Resources.Load<TMP_FontAsset>("Font/yoster_SDF");
         langcode =  PlayerPrefs.HasKey("Language") ? PlayerPrefs.GetString("Language") : "ja";
@@ -127,5 +128,16 @@ public class MainMenuAlter : MonoBehaviour
                 creditsReturnText.text = "–ß‚é";
                 break;
         }
+    }
+
+    private void PrepareAndReloadTranslations(string code)
+    {
+        langcode = code;
+        ReloadTranslations();
+    }
+
+    private void OnDisable()
+    {
+        TranslationTrigger.initiateTranslation -= PrepareAndReloadTranslations;
     }
 }
