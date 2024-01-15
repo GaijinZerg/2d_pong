@@ -47,7 +47,7 @@ public class InputController : MonoBehaviour
         _masterInput.Disable();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (Mathf.Abs(_masterInput.Player.Move.ReadValue<float>()) > 0.05f)
         {

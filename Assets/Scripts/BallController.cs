@@ -26,7 +26,7 @@ public class BallController : MonoBehaviour
         _ = Instantiate(_ballNewSplash2, transform.position, Quaternion.Euler(0, 0, 0));
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         _timer += Time.deltaTime;
         if ((_timer > 1) && !_isPushed)
