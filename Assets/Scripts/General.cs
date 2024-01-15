@@ -36,7 +36,21 @@ public class General : MonoBehaviour
         if (_levelTextObject.GetComponent<TextMeshProUGUI>() != null)
         {
             levelText = _levelTextObject.GetComponent<TextMeshProUGUI>();
-            levelText.text = "LEVEL: 1";
+            if (PlayerPrefs.GetString("Language") == "ja")
+            {
+                Debug.Log("ja");
+                japaneseFont = Resources.Load<TMP_FontAsset>("Font/mplus-1p-bold_SDF_Dynamic");
+                levelText.font = japaneseFont;
+                levelText.text = "レベル：1";
+            }
+            else
+            {
+                Debug.Log("en");
+                levelText.text = "LEVELmotherfucker";
+                englishFont = Resources.Load<TMP_FontAsset>("Font/yoster_SDF");
+                levelText.font = englishFont;
+                levelText.text = "LEVEL: 1";
+            }
         }
         _audioSource = gameObject.GetComponent<AudioSource>();
         _playerController = _player.GetComponent<PlayerController>();
@@ -137,7 +151,18 @@ public class General : MonoBehaviour
         _levelsData[currentLevel + 1].SetActive(true);
         currentLevel++;
         _renderer.sprite = _sprites[currentLevel / 3];
-        levelText.text = "LEVEL: " + (currentLevel + 1).ToString();
+        if (PlayerPrefs.GetString("Language") == "ja")
+        {
+            japaneseFont = Resources.Load<TMP_FontAsset>("Font/mplus-1p-bold_SDF_Dynamic");
+            levelText.font = japaneseFont;
+            levelText.text = "レベル：" + (currentLevel + 1).ToString();
+        }
+        else
+        {
+            englishFont = Resources.Load<TMP_FontAsset>("Font/yoster_SDF");
+            levelText.font = englishFont;
+            levelText.text = "LEVEL: " + (currentLevel + 1).ToString();
+        }
     }
 
     public void GameEnd()

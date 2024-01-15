@@ -92,7 +92,7 @@ public class LevelAlter : MonoBehaviour
             default:
                 mainScoreText.text = "SCORE";
                 mainLivesText.text = "LIVES";
-                mainLevelText.text = "LEVEL:";
+                //mainLevelText.text = "LEVEL:";
                 mainBonus1Text.text = "GET";
                 mainBonus2Text.text = "GET";
                 mainBonus1ScoreText.text = "30000 points";
@@ -114,7 +114,7 @@ public class LevelAlter : MonoBehaviour
             case "ja":
                 mainScoreText.text = "スコア";
                 mainLivesText.text = "残り";
-                mainLevelText.text = "レベル:";
+                //mainLevelText.text = "レベル:";
                 mainBonus1Text.text = "30000 pt";
                 mainBonus2Text.text = "40000 pt";
                 mainBonus1ScoreText.text = "獲得";

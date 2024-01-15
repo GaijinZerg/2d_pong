@@ -107,7 +107,7 @@ public class MainMenuAlter : MonoBehaviour
                 creditsReturnText.text = "RETURN";
                 break;
             case "ja":
-                menuStartText.text = "プレー";
+                menuStartText.text = "プレイ";
                 menuOptionsText.text = "設定";
                 menuScoresText.text = "トップスコア";
                 menuCreditText.text = "クレジット";
