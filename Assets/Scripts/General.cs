@@ -169,10 +169,9 @@ public class General : MonoBehaviour
                     _nextLevelMenu.SetActive(true);
                     if (PlayerPrefs.GetString("Language") == "ja")
                     {
-                        // ToDo: translation
                         japaneseFont = Resources.Load<TMP_FontAsset>("Font/mplus-1p-bold_SDF_Dynamic");
                         nextLevelText.font = japaneseFont;
-                        nextLevelText.text = "JAPANESE TRANSLATION!";
+                        nextLevelText.text = "おめでとう！\nシークレットレベルが見つかりました！";
                     }
                     else
                     {

@@ -34,7 +34,7 @@ public class LevelAlter : MonoBehaviour
     {
         japaneseFont = Resources.Load<TMP_FontAsset>("Font/mplus-1p-bold_SDF_Dynamic");
         englishFont = Resources.Load<TMP_FontAsset>("Font/yoster_SDF");
-        langcode = PlayerPrefs.HasKey("Language") ? PlayerPrefs.GetString("Language") : "ja";
+        langcode = PlayerPrefs.HasKey("Language") ? PlayerPrefs.GetString("Language") : "en";
         AddObjectsToList();
         ReloadTranslations();
     }
@@ -85,7 +85,6 @@ public class LevelAlter : MonoBehaviour
 
     private void ReloadTranslations()
     {
-        //langcode = PlayerPrefs.HasKey("Language") ? PlayerPrefs.GetString("Language") : "ja";
         SetFontAsset(langcode);
         switch(langcode)
         {

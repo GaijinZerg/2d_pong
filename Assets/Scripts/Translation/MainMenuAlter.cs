@@ -32,7 +32,7 @@ public class MainMenuAlter : MonoBehaviour
         TranslationTrigger.initiateTranslation += PrepareAndReloadTranslations;
         japaneseFont = Resources.Load<TMP_FontAsset>("Font/mplus-1p-bold_SDF_Dynamic");
         englishFont = Resources.Load<TMP_FontAsset>("Font/yoster_SDF");
-        langcode =  PlayerPrefs.HasKey("Language") ? PlayerPrefs.GetString("Language") : "ja";
+        langcode =  PlayerPrefs.HasKey("Language") ? PlayerPrefs.GetString("Language") : "en";
         AddObjectsToList();
         ReloadTranslations();
     }

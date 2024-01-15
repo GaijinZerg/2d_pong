@@ -18,7 +18,7 @@ public class GameAlterAlter : MonoBehaviour
     {
         japaneseFont = Resources.Load<TMP_FontAsset>("Font/mplus-1p-bold_SDF_Dynamic");
         englishFont = Resources.Load<TMP_FontAsset>("Font/yoster_SDF");
-        langcode = PlayerPrefs.HasKey("Language") ? PlayerPrefs.GetString("Language") : "ja";
+        langcode = PlayerPrefs.HasKey("Language") ? PlayerPrefs.GetString("Language") : "en";
         AddObjectsToList();
         ReloadTranslations();
     }
@@ -53,7 +53,6 @@ public class GameAlterAlter : MonoBehaviour
 
     private void ReloadTranslations()
     {
-        //langcode = PlayerPrefs.HasKey("Language") ? PlayerPrefs.GetString("Language") : "ja";
         SetFontAsset(langcode);
         switch(langcode)
         {
@@ -61,15 +60,14 @@ public class GameAlterAlter : MonoBehaviour
             default:
                 gameEndTitleText.text = "Please enter your name";
                 gameEndReturnText.text = "Next";
-                gameEndScoresTitleText.text = "YOUR SCORE:";
+                gameEndScoresTitleText.text = "YOUR SCORE";
                 gameEndScoresReturnText.text = "Next";
                 break;
             case "ja":
-                // ToDo: translation
-                gameEndTitleText.text = "Please enter your name";
-                gameEndReturnText.text = "Next";
-                gameEndScoresTitleText.text = "YOUR SCORE:";
-                gameEndScoresReturnText.text = "Next";
+                gameEndTitleText.text = "–¼‘O‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢";
+                gameEndReturnText.text = "ŽŸ‚Ö";
+                gameEndScoresTitleText.text = "YOUR SCORE";
+                gameEndScoresReturnText.text = "ŽŸ‚Ö";
                 break;
         }
     }
