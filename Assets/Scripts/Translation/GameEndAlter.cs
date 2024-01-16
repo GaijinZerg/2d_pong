@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GameAlterAlter : MonoBehaviour
+public class GameEndAlter : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI gameEndTitleText;
     [SerializeField] private TextMeshProUGUI gameEndReturnText;
@@ -58,14 +58,23 @@ public class GameAlterAlter : MonoBehaviour
         {
             case "en":
             default:
+                gameEndTitleText.fontSize = 60;
+                gameEndReturnText.fontSize = 24;
+                gameEndScoresTitleText.fontSize = 100;
+                gameEndScoresReturnText.fontSize = 24;
                 gameEndTitleText.text = "Please enter your name";
                 gameEndReturnText.text = "Next";
                 gameEndScoresTitleText.text = "YOUR SCORE";
                 gameEndScoresReturnText.text = "Next";
                 break;
             case "ja":
+                gameEndTitleText.fontSize = 60;
+                gameEndReturnText.fontSize = 24;
+                gameEndScoresTitleText.fontSize = 100;
+                gameEndScoresReturnText.fontSize = 24;
                 gameEndTitleText.text = "–¼‘O‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢";
                 gameEndReturnText.text = "ŽŸ‚Ö";
+                gameEndScoresTitleText.font = englishFont;
                 gameEndScoresTitleText.text = "YOUR SCORE";
                 gameEndScoresReturnText.text = "ŽŸ‚Ö";
                 break;

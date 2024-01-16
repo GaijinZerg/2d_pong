@@ -90,6 +90,27 @@ public class LevelAlter : MonoBehaviour
         {
             case "en":
             default:
+                mainScoreText.fontStyle = FontStyles.Bold;
+                mainScoreText.fontSize = 50;
+                mainLivesText.fontStyle = FontStyles.Bold;
+                mainLivesText.fontSize = 50;
+                mainBonus1Text.fontSize = 44;
+                mainBonus2Text.fontSize = 44;
+                mainBonus1ScoreText.fontSize = 32;
+                mainBonus2ScoreText.fontSize = 32;
+                gameOverDescriptionText.fontSize = 44;
+                gameOverReturnText.fontSize = 32;
+                pauseResumeText.fontSize = 32;
+                pauseOptionsText.fontSize = 32;
+                pauseExitText.fontSize = 32;
+                optionsSensitivityText.fontSize = 36;
+                optionsMusicText.fontSize = 36;
+                optionsSoundText.fontSize = 36;
+                optionsResumeText.fontSize = 32;
+                nextLevelDescriptionText.fontSize = 44;
+                nextLevelNextText.fontSize = 32;
+                gameEndDescriptionText.fontSize = 44;
+                gameEndNextText.fontSize = 32;
                 mainScoreText.text = "SCORE";
                 mainLivesText.text = "LIVES";
                 //mainLevelText.text = "LEVEL:";
@@ -112,10 +133,33 @@ public class LevelAlter : MonoBehaviour
                 gameEndNextText.text = "Next";
                 break;
             case "ja":
+                mainScoreText.fontStyle = FontStyles.Normal;
+                mainScoreText.fontSize = 46;
+                mainLivesText.fontStyle = FontStyles.Normal;
+                mainLivesText.fontSize = 46;
+                mainBonus1Text.fontSize = 34;
+                mainBonus2Text.fontSize = 34;
+                mainBonus1ScoreText.fontSize = 40;
+                mainBonus2ScoreText.fontSize = 40;
+                gameOverDescriptionText.fontSize = 44;
+                gameOverReturnText.fontSize = 32;
+                pauseResumeText.fontSize = 32;
+                pauseOptionsText.fontSize = 32;
+                pauseExitText.fontSize = 32;
+                optionsSensitivityText.fontSize = 32;
+                optionsMusicText.fontSize = 32;
+                optionsSoundText.fontSize = 32;
+                optionsResumeText.fontSize = 32;
+                nextLevelDescriptionText.fontSize = 44;
+                nextLevelNextText.fontSize = 32;
+                gameEndDescriptionText.fontSize = 44;
+                gameEndNextText.fontSize = 32;
                 mainScoreText.text = "スコア";
                 mainLivesText.text = "残り";
                 //mainLevelText.text = "レベル:";
+                mainBonus1Text.font = englishFont;
                 mainBonus1Text.text = "30000 pt";
+                mainBonus2Text.font = englishFont;
                 mainBonus2Text.text = "40000 pt";
                 mainBonus1ScoreText.text = "獲得";
                 mainBonus2ScoreText.text = "獲得";
